@@ -15,4 +15,4 @@ download manual css
 
 ## 🌐 Demo
 
-[📄 Lihat Demo di GitHub Pages](https://ilhamrhmtkbr.github.io/iamra-css/)
+[📄 Lihat Demo di GitHub Pages](https://ilhamrhmtkbr.github.io/framework-css/)
