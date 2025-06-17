@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/atom-one-dark.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="styles/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        .preview__box {
+            max-width: 800px;
+        }
+
+        .preview__header {
+            color: #d9dee3;
+            background-color: #1a1b25;
+            padding: var(--s) var(--m);
+            border-top-left-radius: var(--radius-s);
+            border-top-right-radius: var(--radius-m);
+        }
+
+        code {
+            border-bottom-right-radius: var(--radius-s);
+            border-bottom-left-radius: var(--radius-s);
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        code::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        code::-webkit-scrollbar-track {
+            background: var(--border-color);
+            border-radius: 0;
+        }
+
+        code::-webkit-scrollbar-thumb {
+            background-color: #ababb6;
+            border-radius: 0;
+        }
+
+        @media screen and (max-width: 1075px) {
+            .preview__box {
+                max-width: 80vw;
+            }
+        }
+    </style>
+</head>
+<body>
+<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" style="display: none">
+    <symbol viewBox="0 0 512.001 512.001" id="click">
+        <path d="M401.809 212.523c-12.295-1.17-24.556 2.892-33.639 11.15-1.122 1.021-2.186 2.096-3.188 3.217-6.805-12.704-19.329-21.819-33.946-23.214-12.295-1.17-24.556 2.892-33.639 11.15-1.122 1.021-2.186 2.096-3.188 3.217-5.941-11.089-16.24-19.443-28.485-22.315 21.223-21.098 33.958-50.2 33.958-81.275C299.681 51.344 248.337 0 185.227 0S70.774 51.344 70.774 114.454c0 46.302 28.254 88.244 70.773 105.817v49.155l-31.869 22.764c-18.882 13.488-26.638 37.341-19.3 59.353l31.431 94.297a96.64 96.64 0 0 0 91.796 66.162h130.862c53.354 0 96.76-43.406 96.76-96.76v-157.72c0-23.126-17.314-42.89-39.418-44.999zM87.361 114.454c0-53.963 43.903-97.866 97.866-97.866s97.866 43.903 97.866 97.866c0 37.248-21.382 71.191-54.186 87.594v-21.686c21.942-14.579 35.387-39.4 35.387-65.908 0-43.597-35.47-79.067-79.067-79.067s-79.067 35.47-79.067 79.067c0 26.506 13.446 51.328 35.387 65.908v21.686c-32.802-16.403-54.186-50.347-54.186-87.594zm102.128-43.476c-12.296-1.172-24.556 2.89-33.638 11.149-9.09 8.265-14.304 20.048-14.304 32.327v44.644c-11.839-11.626-18.799-27.699-18.799-44.644 0-34.451 28.028-62.479 62.479-62.479s62.479 28.028 62.479 62.479c0 16.947-6.96 33.019-18.799 44.645v-43.123c.001-23.126-17.313-42.892-39.418-44.998zm154.978 424.435H213.604a80.07 80.07 0 0 1-76.059-54.819l-31.431-94.296a35.75 35.75 0 0 1 13.205-40.609l22.228-15.878v72.352c0 4.58 3.712 8.294 8.294 8.294s8.294-3.713 8.294-8.294V114.454a27.16 27.16 0 0 1 8.874-20.053c5.716-5.197 13.146-7.652 20.906-6.91 13.686 1.304 24.406 13.816 24.406 28.484v175.413c0 4.58 3.712 8.294 8.294 8.294s8.294-3.713 8.294-8.294v-53.08a27.16 27.16 0 0 1 8.874-20.053c5.715-5.196 13.137-7.657 20.906-6.91 13.685 1.305 24.405 13.817 24.405 28.485v7.325 53.08c0 4.58 3.712 8.294 8.294 8.294s8.294-3.713 8.294-8.294v-53.08a27.16 27.16 0 0 1 8.874-20.053c5.715-5.196 13.137-7.657 20.906-6.91 13.685 1.305 24.405 13.817 24.405 28.485V256v53.08c0 4.58 3.712 8.294 8.294 8.294s8.294-3.713 8.294-8.294V256c0-7.617 3.234-14.927 8.874-20.053 5.715-5.196 13.137-7.657 20.906-6.91 13.685 1.305 24.405 13.817 24.405 28.485V415.24h.003c-.003 44.208-35.968 80.173-80.176 80.173z"></path>
+    </symbol>
+    <symbol viewBox="0 0 512 512" id="background">
+        <path d="M490.667 213.333H341.333V64c0-11.782-9.551-21.333-21.333-21.333H21.333C9.551 42.667 0 52.218 0 64v213.333c0 11.782 9.551 21.333 21.333 21.333h149.333V448c0 11.782 9.551 21.333 21.333 21.333h298.667c11.782 0 21.333-9.551 21.333-21.333V234.667c.001-11.782-9.55-21.334-21.332-21.334zM42.667 256V85.333h256v128H192c-11.782 0-21.333 9.551-21.333 21.333V256h-128zm426.666 170.667h-256V277.333 256H320h149.333v170.667z"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="badge">
+        <path fill-rule="evenodd"
+              d="M1 5a4 4 0 0 1 4-4h4.757a4 4 0 0 1 2.828 1.172l9 9a4 4 0 0 1 0 5.657l-4.757 4.757a4 4 0 0 1-5.657 0l-9-9A4 4 0 0 1 1 9.757V5zm4-2a2 2 0 0 0-2 2v4.757a2 2 0 0 0 .586 1.414l9 9a2 2 0 0 0 2.828 0l4.757-4.757a2 2 0 0 0 0-2.828l-9-9A2 2 0 0 0 9.757 3H5z"></path>
+        <path d="M9 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 1 1 3 0z"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="breadcrumb">
+        <path d="M8.121 15.879A2.99 2.99 0 0 0 6 15a3 3 0 1 0 0 6 3 3 0 0 0 3-3 2.99 2.99 0 0 0-.879-2.121zm0 0l7.757-7.757m0 0A2.99 2.99 0 0 0 18 9a3 3 0 1 0 0-6 3 3 0 0 0-3 3 2.99 2.99 0 0 0 .879 2.121zm0 0l.004-.004"
+              stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol viewBox="0 0 400 400" id="button">
+        <path d="M87.444 138c74.358 2.983 148.894 0 223.286 0 36.087 0 61.708 28.502 64.084 45.568s8.003 65.477-48.777 72.995-206.088 6.284-235.226 3.142S23 249.637 23 200.634s35.475-61.099 41.841-61.099"
+              stroke="#000" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            viewBox="-0.5 0 25 25" id="card">
+        <path d="M10.58 3.97H6a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V13.9"></path>
+        <path d="M10.58 9.97H2m3 8.95h6m3.5-12h7"></path>
+    </symbol>
+    <symbol viewBox="0 0 50.8 50.8" id="data">
+        <path d="M7.854 33.546 16 22.893l7.52 16.293 6.267-27.572 3.76 8.773 5.64-6.893 3.76 8.146"
+              stroke="#000" stroke-width="2.507" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol viewBox="0 0 15 15" id="dimen">
+        <path fill-rule="evenodd"
+              d="M3 2.739a.25.25 0 0 1-.403.197L1.004 1.697a.25.25 0 0 1 0-.395L2.597.064A.25.25 0 0 1 3 .261V1h6V.261a.25.25 0 0 1 .403-.197l1.593 1.239a.25.25 0 0 1 0 .395L9.404 2.936A.25.25 0 0 1 9 2.739V2H3v.739zM9.5 5h-7a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5zm-7-1A1.5 1.5 0 0 0 1 5.5v7A1.5 1.5 0 0 0 2.5 14h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 9.5 4h-7zm12.239 2H14v6h.739a.25.25 0 0 1 .197.403l-1.239 1.593a.25.25 0 0 1-.395 0l-1.239-1.593a.25.25 0 0 1 .197-.403H13V6h-.739a.25.25 0 0 1-.197-.403l1.239-1.593a.25.25 0 0 1 .395 0l1.239 1.593a.25.25 0 0 1-.197.403z"
+              fill="#000"></path>
+    </symbol>
+    <symbol viewBox="0 0 16 16" id="dimen-gap">
+        <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"></path>
+    </symbol>
+    <symbol viewBox="0 0 15 15" id="dimen-height">
+        <path fill-rule="evenodd"
+              d="M7.181 1.682a.45.45 0 0 1 .636 0l2.5 2.5a.45.45 0 1 1-.636.636L7.95 3.086v8.827l1.732-1.732a.45.45 0 0 1 .636.636l-2.5 2.5a.45.45 0 0 1-.636 0l-2.5-2.5a.45.45 0 0 1 .636-.636l1.732 1.732V3.086L5.318 4.818a.45.45 0 1 1-.636-.636l2.5-2.5z"
+              fill="#000"></path>
+    </symbol>
+    <symbol viewBox="-10 -5 1034 1034" id="dimen-svg">
+        <path d="M500 176q-38 0 -69 21t-46 56q-10 23 -10 48q-17 -18 -40 -27q-35 -15 -71.5 -7.5t-64 34.5t-34.5 63.5t7 72.5q10 22 28 40q-25 0 -48 9q-36 15 -56.5 46t-20.5 69.5t20.5 69.5t56.5 45q23 10 47 10q-17 18 -27 40q-14 36 -7 72.5t34.5 63.5t64 34.5t71.5 -7.5 q23 -10 40 -27q0 25 10 48q15 35 46 55.5t69 20.5t69 -20.5t46 -55.5q10 -23 10 -48q17 17 40 27q35 15 71.5 7.5t64 -34.5t34.5 -63.5t-7 -72.5q-10 -23 -27 -40q24 0 47 -9q36 -15 56.5 -46t20.5 -69.5t-20.5 -69.5t-56.5 -46q-23 -9 -47 -9q17 -18 27 -40q14 -36 7 -72.5 t-34.5 -63.5t-64 -34.5t-71.5 7.5q-23 9 -41 27q1 -25 -9 -48q-15 -35 -46 -56t-69 -21zM500 233q20 0 37.5 12t25 30.5t3.5 38.5t-18 35v137l97 -97q0 -21 11.5 -38t30 -24.5t39 -3.5t34.5 18t18 34.5t-3.5 39.5t-24.5 30t-37 11l-98 98h138q14 -15 34 -19t39 4t30.5 25.5 t11.5 37t-11.5 37t-30 25t-39 3.5t-34.5 -18h-138l98 98q20 0 37 11t24.5 29.5t3.5 39.5t-18 35t-34.5 18t-39 -4t-30 -25t-11.5 -37l-97 -98v138q14 15 18 35t-3.5 38.5t-25 30t-37.5 11.5t-37.5 -11.5t-25 -30t-3.5 -38.5t18 -35v-138l-97 98q0 21 -11.5 37.5t-30 24.5 t-39 4t-34.5 -18t-18 -35t3.5 -39.5t24.5 -29.5t37 -11l98 -98h-138q-14 14 -34.5 18t-39 -3.5t-30 -25t-11.5 -37t11.5 -37t30.5 -25.5t39 -4t34 19h138l-98 -98q-20 0 -37 -11t-24.5 -30t-3.5 -39.5t18 -34.5t34.5 -18t39 3.5t30 24.5t11.5 38l97 97v-138q-14 -14 -18 -34 t3.5 -38.5t25 -30.5t37.5 -12z"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="dimen-swiper">
+        <path d="M16 14v8a1 1 0 0 1-2 0v-8a2 2 0 0 0-4 0v8a1 1 0 0 1-2 0v-4a2 2 0 0 0-4 0v4a1 1 0 0 1-2 0v-4a4 4 0 0 1 4-4 3.959 3.959 0 0 1 2 .556V14a4 4 0 0 1 8 0zm6.706-9.708l-3-3a1 1 0 0 0-1.414 1.414L19.586 4H4a1 1 0 0 0 0 2h15.586l-1.293 1.293a1 1 0 1 0 1.414 1.414l3-3a1 1 0 0 0-.001-1.415z"></path>
+    </symbol>
+    <symbol viewBox="0 0 15 15" id="dimen-width">
+        <path fill-rule="evenodd"
+              d="M4.818 4.682a.45.45 0 0 1 0 .636L3.086 7.05h8.827l-1.732-1.732a.45.45 0 0 1 .636-.636l2.5 2.5a.45.45 0 0 1 0 .636l-2.5 2.5a.45.45 0 0 1-.636-.636l1.732-1.732H3.086l1.732 1.732a.45.45 0 0 1-.636.636l-2.5-2.5a.45.45 0 0 1 0-.636l2.5-2.5a.45.45 0 0 1 .636 0z"
+              fill="#000"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="display">
+        <path fill-rule="evenodd"
+              d="M23 4a3 3 0 0 0-3-3H4a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3h7v3H6a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2h-5v-3h7a3 3 0 0 0 3-3V4zm-2 0a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4z"
+              fill="#0f0f0f"></path>
+    </symbol>
+    <symbol stroke="#000" stroke-width="1.5" stroke-linejoin="round" viewBox="0 0 24 24" id="display-flex">
+        <path d="M6.5 3c-1.556 0-2.917.5-3.111 1S3 8 3 12l.389 8c.194.5 1.556 1 3.111 1s2.917-.5 3.111-1S10 16 10 12l-.389-8C9.417 3.5 8.056 3 6.5 3zm11 0c-1.556 0-2.917.5-3.111 1S14 8 14 12l.389 8c.194.5 1.556 1 3.111 1s2.917-.5 3.111-1S21 16 21 12l-.389-8c-.194-.5-1.556-1-3.111-1z"></path>
+    </symbol>
+    <symbol viewBox="0 0 28 28" id="display-grid">
+        <path d="M26 8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4h0zm-2-8h-4a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h0zm2 24a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4h0zm-2-8h-4a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4a4 4 0 0 0-4-4h0zM10 8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4h0zM8 0H4a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h0zm2 24a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4h0zm-2-8H4a4 4 0 0 0-4 4v4a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4a4 4 0 0 0-4-4h0z"
+              fill-rule="evenodd"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="display-place">
+        <path fill-rule="evenodd"
+              d="M5 9.5C5 6.094 8.01 3 12 3s7 3.094 7 6.5c0 2.145-1.312 4.541-3.039 6.761-1.365 1.755-2.883 3.272-3.961 4.333-1.077-1.061-2.596-2.578-3.961-4.333C6.312 14.041 5 11.645 5 9.5zM12 1C6.99 1 3 4.906 3 9.5c0 2.855 1.688 5.709 3.461 7.989 1.534 1.973 3.259 3.668 4.337 4.728l.496.49a1 1 0 0 0 1.414 0l.496-.49h0c1.078-1.06 2.802-2.756 4.337-4.728C19.312 15.209 21 12.355 21 9.5 21 4.906 17.01 1 12 1zm0 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 1 0 0 5z"
+              fill="#000"></path>
+    </symbol>
+    <symbol stroke="#0c0310" stroke-width="2" viewBox="0 0 24 24" id="font">
+        <path d="M18 13.184c0 3.488-2.686 6.316-6 6.316s-6-2.828-6-6.316C6 8.5 12 5 12 5s6 3.5 6 8.184z"></path>
+        <path d="M12 15.5a2 2 0 0 1-2-2" stroke-linecap="round"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="form">
+        <path d="M22 6H2a1.001 1.001 0 0 0-1 1v3a1.001 1.001 0 0 0 1 1h20a1.001 1.001 0 0 0 1-1V7a1.001 1.001 0 0 0-1-1zm0 4H2V7h20v3h.001M22 17H2a1.001 1.001 0 0 0-1 1v3a1.001 1.001 0 0 0 1 1h20a1.001 1.001 0 0 0 1-1v-3a1.001 1.001 0 0 0-1-1zm0 4H2v-3h20v3h.001M10 14v1H2v-1zM2 3h8v1H2z"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="hamburger-menu">
+        <path d="M4 6H20M4 12H20M4 18H20" stroke="#000" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="header-footer">
+        <path d="M17.745 1.996a2.25 2.25 0 0 1 2.245 2.096l.005.154v15.498a2.25 2.25 0 0 1-2.096 2.245l-.154.005h-11.5A2.25 2.25 0 0 1 4 19.898l-.005-.154V4.246a2.25 2.25 0 0 1 2.096-2.245l.154-.005h11.5zm0 1.5h-11.5a.75.75 0 0 0-.743.648l-.007.102v15.498a.75.75 0 0 0 .648.743l.102.007h11.5a.75.75 0 0 0 .743-.648l.007-.102V4.246a.75.75 0 0 0-.648-.743l-.102-.007zM7 6.75A1.75 1.75 0 0 1 8.75 5h6.5A1.75 1.75 0 0 1 17 6.75v1.5A1.75 1.75 0 0 1 15.25 10h-6.5A1.75 1.75 0 0 1 7 8.25v-1.5zm1.75-.25a.25.25 0 0 0-.25.25v1.5a.25.25 0 0 0 .25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.25.25 0 0 0-.25-.25h-6.5zM7 15.75A1.75 1.75 0 0 1 8.75 14h6.5A1.75 1.75 0 0 1 17 15.75v1.5A1.75 1.75 0 0 1 15.25 19h-6.5A1.75 1.75 0 0 1 7 17.25v-1.5zm1.75-.25a.25.25 0 0 0-.25.25v1.5a.25.25 0 0 0 .25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.25.25 0 0 0-.25-.25h-6.5z"></path>
+    </symbol>
+    <symbol viewBox="0 0 32 32" id="image">
+        <path d="M8 10a2 2 0 1 1 0-4 2 2 0 1 1 0 4h0zm0-6a4 4 0 1 0 0 8 4 4 0 1 0 0-8h0zm22 13.128L24 11l-9.941 10.111L10 17l-8 7.337V4a2 2 0 0 1 2-2h24a2 2 0 0 1 2 2v13.128h0zM30 28a2 2 0 0 1-2 2h-5.168l-7.368-7.465L24 13.999l6 6V28h0zM4 30a2 2 0 0 1-2-2v-.939l7.945-7.116L20.001 30H4h0zM28 0H4a4 4 0 0 0-4 4v24a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h0z"
+              fill-rule="evenodd"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="loading">
+        <path d="M12 3v3m0 15v-3m-7.794-1.5L6.804 15M21 12h-3m-1.5 7.794L15 17.196M3 12h3m1.5-7.794L9 6.804m-1.5 12.99L9 17.196m10.794-.696L17.196 15M4.206 7.5L6.804 9"
+              stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol viewBox="0 0 32 32" id="modal">
+        <path d="M28 4H10a2.006 2.006 0 0 0-2 2v14a2.006 2.006 0 0 0 2 2h18a2.006 2.006 0 0 0 2-2V6a2.006 2.006 0 0 0-2-2zm0 16H10V6h18zm-10 6H4V16h2v-2H4a2.006 2.006 0 0 0-2 2v10a2.006 2.006 0 0 0 2 2h14a2.006 2.006 0 0 0 2-2v-2h-2z"></path>
+    </symbol>
+    <symbol viewBox="0 0 15 15" id="pagination">
+        <path d="M10.5.5l.354-.354L10.707 0H10.5v.5zm3 3h.5v-.207l-.146-.146-.354.354zm-4 9l-.354-.354A.5.5 0 0 0 9.5 13v-.5zm3 1.5h-10v1h10v-1zM2.5 1h8V0h-8v1zm7.646-.146l3 3 .707-.707-3-3-.707.707zM2.5 14a.5.5 0 0 1-.5-.5H1A1.5 1.5 0 0 0 2.5 15v-1zm10 1a1.5 1.5 0 0 0 1.5-1.5h-1a.5.5 0 0 1-.5.5v1zM2.5 0A1.5 1.5 0 0 0 1 1.5h1a.5.5 0 0 1 .5-.5V0zM12 12H9.5v1H12v-1zm-2.146.854l1.793-1.793-.707-.707-1.793 1.793.707.707zM10.793 9H10.5v1h.293V9zM10.5 9A1.5 1.5 0 0 0 9 10.5h1a.5.5 0 0 1 .5-.5V9zm1.5 1.207C12 9.54 11.46 9 10.793 9v1c.114 0 .207.093.207.207h1zm-.354.854c.226-.226.354-.533.354-.854h-1c0 .055-.022.108-.061.146l.707.707zM13 3.5v10h1v-10h-1zm-11 10v-12H1v12h1z"
+              fill="#000"></path>
+    </symbol>
+    <symbol fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 64 64"
+            id="sidebar">
+        <path d="M50.01 56.074H14.021a6 6 0 0 1-5.995-5.995V14.068a6 6 0 0 1 5.995-5.994H50.01a6 6 0 0 1 5.995 5.994v36.011a6 6 0 0 1-5.995 5.995zm-25.984-4v-40h-9.012a2.99 2.99 0 0 0-2.989 2.989v34.022a2.99 2.99 0 0 0 2.989 2.989h9.012zm24.991-40H28.026v40h20.991a2.99 2.99 0 0 0 2.989-2.989V15.063a2.99 2.99 0 0 0-2.989-2.989z"></path>
+    </symbol>
+    <symbol viewBox="0 0 1920 1920" id="table">
+        <path d="M1740 0c99.24 0 180 80.76 180 180v1560c0 99.24-80.76 180-180 180H180c-99.24 0-180-80.76-180-180V180C0 80.76 80.76 0 180 0h1560Zm60 600V180c0-33-27-60-60-60h-420v480h480Zm0 1065V720H720v1080h945c74.25 0 135-60.75 135-135ZM720 600h480V120H720v480Zm-120 0V120H180c-33 0-60 27-60 60v420h480Zm-480 600h480V720H120v480Zm480 600v-480H120v420c0 33 27 60 60 60h420Z"
+              fill-rule="evenodd"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="text">
+        <path d="M8 4v16m9-8v8M6 20h4m5 0h4M13 7V4H3v3m18 7v-2h-8v2" stroke="#000" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <symbol viewBox="-1 0 30 30" id="toast">
+        <path d="M3 24l3-6v-8a8 8 0 1 1 16 0v8l3 6H3h0zm11 4a2.99 2.99 0 0 1-2.816-2h5.632A2.99 2.99 0 0 1 14 28h0zm10-10v-8c0-5.522-4.478-10-10-10S4 4.478 4 10v8l-4 8h9.101a5 5 0 0 0 9.798 0H28l-4-8h0z"
+              fill-rule="evenodd"></path>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="tooltip">
+        <path stroke="#000" stroke-linejoin="round" stroke-width="2"
+              d="M19 4H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.172a2 2 0 0 1 1.414.586l1.707 1.707a1 1 0 0 0 1.414 0l1.707-1.707A2 2 0 0 1 15.828 18H19a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+    </symbol>
+</svg>
+<header>
+    <div class="header__logo">
+        <svg class='header__logo__img'
+             xmlns="http://www.w3.org/2000/svg" width="39.3" height="39.3" viewBox="0 0 143 143"
+             shape-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero">
+            <path
+                    d="M72 0c13 0 24 9 32 22 7 13 11 31 11 50v13l-15 6c1-6 2-13 2-19 0-17-4-32-10-43-6-9-13-15-20-15-6 0-11 3-16 9-7 1-13 3-19 5l3-6C48 9 59 0 72 0zm34 116c-1 2-1 3-2 5-8 14-19 22-32 22s-24-8-32-22c-8-13-12-30-12-49 0-5 0-9 1-13 4-2 9-4 14-6-1 6-1 12-1 19 0 16 4 31 10 42 5 10 12 16 20 16 5 0 10-3 15-9 6-1 13-3 19-5zM0 72c0-13 9-24 22-32s31-12 50-12c4 0 9 0 13 1 2 4 4 9 6 15-6-2-13-2-19-2-17 0-32 4-43 10-9 5-15 12-15 20 0 5 3 11 9 15 1 7 3 13 4 19-1-1-3-1-5-2C9 96 0 85 0 72zm53 28c6 1 12 2 19 2 16 0 31-4 42-10 10-6 16-13 16-20 0-6-3-11-9-15-1-7-3-14-5-20 2 1 3 2 5 3 14 8 22 19 22 32s-8 24-22 32c-13 7-30 11-49 11H59c-3-5-4-10-6-15z"/>
+        </svg>
+        <p>iamra.css</p>
+    </div>
+    <p class="example-button-change-theme cursor-pointer" onclick="changeTheme()">Dark Mode</p>
+    <div class='get-menu' onclick="showMenu()">
+        <svg id='get-menu' viewBox="0 0 100 100">
+            <path class="line line1"
+                  d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"/>
+            <path class="line line2" d="M 20,50 H 80"/>
+            <path class="line line3"
+                  d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"/>
+        </svg>
+    </div>
+    <div class="navigation">
+        <a class="hover-progress" href="index.html">Index</a>
+        <a class="hover-progress active" href="example.html">Example</a>
+    </div>
+</header>
+<nav>
+    <a href="index.html">Index</a>
+    <a href="example.html">Example</a>
+</nav>
+<main>
+    <aside class="sidebar-menu">
+        <div class="sidebar-menu-title sidebar-menu-item" onclick="minifySidebar()">
+            <svg class="sidebar-menu-button-svg">
+                <use href="#click"></use>
+            </svg>
+            <p>Menu</p>
+        </div>
+
+        <div class="sidebar-menu-element">
+            <a class="sidebar-menu-item" data-title="Abstract" href="#Abstract">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#click"></use>
+                </svg>
+                <p>Abstract</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Background" href="#Background">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#background"></use>
+                </svg>
+                <p>Background</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Badge" href="#Badge">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#badge"></use>
+                </svg>
+                <p>Badge</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Breadcrumb" href="#Breadcrumb">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#breadcrumb"></use>
+                </svg>
+                <p>Breadcrumb</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Button" href="#Button">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#button"></use>
+                </svg>
+                <p>Button</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Card" href="#Card">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#card"></use>
+                </svg>
+                <p>Card</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Data" href="#Data">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#data"></use>
+                </svg>
+                <p>Data</p>
+            </a>
+            <details>
+                <summary class="sidebar-menu-item" data-title="Dimen">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen"></use>
+                    </svg>
+                    <span>Dimen</span>
+                </summary>
+                <a class="sidebar-menu-item" data-title="Gap" href="#Gap">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-gap"></use>
+                    </svg>
+                    <p>Gap</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Height" href="#Height">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-height"></use>
+                    </svg>
+                    <p>Height</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Svg" href="#Svg">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-svg"></use>
+                    </svg>
+                    <p>Svg</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Swiper" href="#Swiper">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-swiper"></use>
+                    </svg>
+                    <p>Swiper</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Width" href="#Width">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-width"></use>
+                    </svg>
+                    <p>Width</p>
+                </a>
+            </details>
+            <details>
+                <summary class="sidebar-menu-item" data-title="Display">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#display"></use>
+                    </svg>
+                    <span>Display</span>
+                </summary>
+                <a class="sidebar-menu-item" data-title="Place" href="#Place">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#display-place"></use>
+                    </svg>
+                    <p>Place</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Flex" href="#Flex">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#display-flex"></use>
+                    </svg>
+                    <p>Flex</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Grid" href="#Grid">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#display-grid"></use>
+                    </svg>
+                    <p>Grid</p>
+                </a>
+            </details>
+            <a class="sidebar-menu-item" data-title="Font" href="#Font">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#font"></use>
+                </svg>
+                <p>Font</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Form" href="#Form">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#form"></use>
+                </svg>
+                <p>Form</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Hamburger Menu" href="#HamburgerMenu">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#hamburger-menu"></use>
+                </svg>
+                <p>Hamburger Menu</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Header Footer" href="#HeaderFooter">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#header-footer"></use>
+                </svg>
+                <p>Header Footer</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Image" href="#Image">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#image"></use>
+                </svg>
+                <p>Image</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Loading" href="#Loading">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#loading"></use>
+                </svg>
+                <p>Loading</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Modal" href="#Modal">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#modal"></use>
+                </svg>
+                <p>Modal</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Pagination" href="#Pagination">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#pagination"></use>
+                </svg>
+                <p>Pagination</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Sidebar" href="#Sidebar">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#sidebar"></use>
+                </svg>
+                <p>Sidebar</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Table" href="#Table">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#table"></use>
+                </svg>
+                <p>Table</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Text" href="#Text">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#text"></use>
+                </svg>
+                <p>Text</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Toast" href="#Toast">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#toast"></use>
+                </svg>
+                <p>Toast</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Tooltip" href="#Tooltip">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#tooltip"></use>
+                </svg>
+                <p>Tooltip</p>
+            </a>
+        </div>
+    </aside>
+    <section>
+        <div id="Abstract" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Abstract</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Background" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Background</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="flex-ais-jcs gap-m">
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-primary"></div>
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-warning"></div>
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-success"></div>
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-danger"></div>
+                </div>
+            </div>
+        </div>
+        <div id="Badge" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Badge</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="flex-ais-jcs gap-m">
+                    <div class="badge badge-close badge-primary">
+                        <p>Message</p>
+                        <div class="badge-button-close">x</div>
+                    </div>
+                    <div class="badge badge-close badge-warning">
+                        <p>Message</p>
+                        <div class="badge-button-close">x</div>
+                    </div>
+                    <div class="badge badge-close badge-success">
+                        <p>Message</p>
+                        <div class="badge-button-close">x</div>
+                    </div>
+                    <div class="badge badge-close badge-danger">
+                        <p>Message</p>
+                        <div class="badge-button-close">x</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Breadcrumb" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Breadcrumb</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="flex-ais-jcs gap-m">
+                    <div class="breadcrumb">
+                        <a class="breadcrumb-item active">menu a</a>
+                        <a class="breadcrumb-item">menu b</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Button" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Button</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="flex-ais-jcs gap-m" style="margin-top: var(--m)">
+                    <div class="button btn-primary">Example</div>
+                    <a class="button badge-primary text-primary">Example</a>
+                    <button class="button bg-primary">Example</button>
+                </div>
+                <div class="flex-ais-jcs gap-m" style="margin-top: var(--m)">
+                    <div class="button btn-warning">Example</div>
+                    <a class="button badge-warning text-warning">Example</a>
+                    <button class="button bg-warning">Example</button>
+                </div>
+                <div class="flex-ais-jcs gap-m" style="margin-top: var(--m)">
+                    <div class="button btn-success">Example</div>
+                    <a class="button badge-success text-success">Example</a>
+                    <button class="button bg-success">Example</button>
+                </div>
+                <div class="flex-ais-jcs gap-m" style="margin-top: var(--m)">
+                    <div class="button btn-danger">Example</div>
+                    <a class="button badge-danger text-danger">Example</a>
+                    <button class="button bg-danger">Example</button>
+                </div>
+            </div>
+        </div>
+        <div id="Card" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Card</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div>
+                <h3>Example</h3>
+                <div class="card-layout max-width-800">
+                    <div class="card-wrapper">
+                        <div>
+                            <div class="card-wrapper-title">Ilham Rahmat Akbar</div>
+                            <p>Fullstack Dev</p>
+                            <small>Jakarta</small>
+                        </div>
+                        <div class="card-wrapper-actions">
+                            <a class="text-primary">Hire</a>
+                            <a class="text-success">Contact</a>
+                        </div>
+                        <p class="card-wrapper-date-time">5 min ago</p>
+                    </div>
+                    <div class="card-wrapper replace-shadow-with-border">
+                        <div>
+                            <div class="card-wrapper-title">Ilham Rahmat Akbar</div>
+                            <p>Fullstack Dev</p>
+                            <small>Jakarta</small>
+                        </div>
+                        <div class="card-wrapper-actions">
+                            <a class="text-primary">Hire</a>
+                            <a class="text-success">Contact</a>
+                        </div>
+                        <p class="card-wrapper-date-time">5 min ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Data" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Data</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="data-box">
+                    <h3>Data</h3>
+                    <div class="data-content">
+                        <div class="data-key">Name</div>
+                        <div class="data-value">: Ilham Rahmat Akbar</div>
+                        <div class="data-key">Position</div>
+                        <div class="data-value">: Fullstack</div>
+                        <div class="data-key">Rate</div>
+                        <div class="data-value">: A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Gap" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Gap</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="flex-ais-jcs gap-m">
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-primary"></div>
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-warning"></div>
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-success"></div>
+                    <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                         class="bg-danger"></div>
+                </div>
+            </div>
+        </div>
+        <div id="Height" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Height</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Svg" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Svg</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="flex-ais-jcs gap-m">
+                    <svg class="svg-l">
+                        <use href="#click"></use>
+                    </svg>
+                    <svg class="svg-l">
+                        <use href="#click"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div id="Swiper" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Swiper</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Width" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Width</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Place" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Place</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Grid" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Grid</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Flex" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Flex</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div>
+                <h3 style="margin-bottom: var(--m)">Example</h3>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>flex-ais-jcs</small>
+                    <div class="flex-ais-jcs gap-m">
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-primary"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-warning"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-success"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-danger"></div>
+                    </div>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>flex-ais-jcc</small>
+                    <div class="flex-ais-jcc gap-m">
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-primary"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-warning"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-success"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-danger"></div>
+                    </div>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>flex-aic-jcc</small>
+                    <div class="flex-aic-jcc gap-m">
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-primary"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-warning"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-success"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-danger"></div>
+                    </div>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>flex-aic-jce</small>
+                    <div class="flex-aic-jce gap-m">
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-primary"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-warning"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-success"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-danger"></div>
+                    </div>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>flex-aic-jcb</small>
+                    <div class="flex-aic-jcb gap-m">
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-primary"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-warning"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-success"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-danger"></div>
+                    </div>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>flex-aic-jca</small>
+                    <div class="flex-aic-jca gap-m">
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-primary"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-warning"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-success"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-danger"></div>
+                    </div>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>flex-aic-jcs</small>
+                    <div class="flex-aic-jcs gap-m">
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-primary"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-warning"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-success"></div>
+                        <div style="width: var(--xx); height: var(--xx); border-radius: var(--radius-m)"
+                             class="bg-danger"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Font" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Font</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div>
+                <h3 style="margin-bottom: var(--m)">Example</h3>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>font-light</small>
+                    <p class="font-light">Font light</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>font-regular</small>
+                    <p class="font-regular">Font regular</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>font-medium</small>
+                    <p class="font-medium">Font medium</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>font-bold</small>
+                    <p class="font-bold">Font bold</p>
+                </div>
+            </div>
+        </div>
+        <div id="Form" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Form</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div>
+                    <form class="card-wrapper replace-shadow-with-border">
+                        <h3 class="text-center">Login</h3>
+                        <fieldset class="ps-center">
+                            <legend>Username</legend>
+                            <input type="text"/>
+                            <p class="text-error-msg">Error</p>
+                        </fieldset>
+                        <fieldset class="ps-center">
+                            <legend>Password</legend>
+                            <input type="password"/>
+                            <p class="text-error-msg">Error</p>
+                        </fieldset>
+                        <button type="submit" class="button bg-primary ps-center">Submit</button>
+                    </form>
+
+                    <br/>
+                    <form class="card-wrapper replace-shadow-with-border">
+                        <h3 class="text-center">Register</h3>
+                        <div class="max-width-500">
+                            <div class="flex-ais-jcs">
+                                <label for="username">username</label>
+                                <input name="username" type="text" placeholder="input" id="username"/>
+                            </div>
+                            <p class="text-error-msg">Error</p>
+                        </div>
+                        <div class="max-width-500">
+                            <div class="flex-ais-jcs">
+                                <label for="option">option</label>
+                                <select name="option" id="option">
+                                    <option value="a">a</option>
+                                    <option value="b">b</option>
+                                    <option value="c">c</option>
+                                </select>
+                            </div>
+                            <p class="text-error-msg">Error</p>
+                        </div>
+                        <div class="max-width-500">
+                            <div class="flex-ais-jcs">
+                                <label for="desc">desc</label>
+                                <textarea name="desc" id="desc"></textarea>
+                            </div>
+                            <p class="text-error-msg">Error</p>
+                        </div>
+                        <div class="max-width-500">
+                            <div class="flex-ais-jcs">
+                                <label for="files">name</label>
+                                <input name="files" type="file" id="files"/>
+                            </div>
+                            <p class="text-error-msg">Error</p>
+                        </div>
+                        <div class="max-width-500">
+                            <div class="flex-ais-jcs">
+                                <label id="dob">date of birth</label>
+                                <input name="dob" type="date" />
+                            </div>
+                            <p class="text-error-msg">Error</p>
+                        </div>
+                        <button type="submit" class="button bg-primary ps-center">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="HamburgerMenu" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Hamburger Menu</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div>
+                    <div class='get-menu' style="display: flex">
+                        <svg viewBox="0 0 100 100">
+                            <path class="line line1"
+                                  d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"/>
+                            <path class="line line2" d="M 20,50 H 80"/>
+                            <path class="line line3"
+                                  d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="HeaderFooter" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Header Footer</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Image" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Image</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="picture-default rounded">
+                    <img src="">
+                </div>
+            </div>
+        </div>
+        <div id="Loading" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Loading</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+        <div id="Modal" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Modal</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="button btn-primary" onclick="showModal()">Show</div>
+                <div class="modal hide">
+                    <div class="modal-box">
+                        <div class="modal-header">
+                            <p>Title</p>
+                            <div class="badge-button-close" onclick="showModal()">x</div>
+                        </div>
+                        <div class="modal-content">...</div>
+                        <div class="modal-footer">...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Pagination" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Pagination</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="pagination">
+                    <div class="pagination-item"><</div>
+                    <div class="pagination-item">1</div>
+                    <div class="pagination-item">2</div>
+                    <div class="pagination-item">3</div>
+                    <div class="pagination-item">></div>
+                </div>
+            </div>
+        </div>
+        <div id="Sidebar" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Sidebar</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+        </div>
+        <div id="Table" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Table</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="table-box">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td class="fit">Example</td>
+                            <td class="action">
+                                <a class="text-primary">save</a>
+                                <div class="text-success">edit</div>
+                                <form><button class="button-clear-style text-warning">delete</button></form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="Text" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Text</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div>
+                <h3 style="margin-bottom: var(--m)">Example</h3>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>text-primary</small>
+                    <p class="text-primary">Text primary</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>text-warning</small>
+                    <p class="text-warning">Text warning</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>text-success</small>
+                    <p class="text-success">Text success</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>text-danger</small>
+                    <p class="text-danger">Text danger</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>text-error-msg</small>
+                    <p class="text-error-msg">Text error msg</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>text-gold</small>
+                    <p class="text-gold">Text gold</p>
+                </div>
+                <div style="margin-bottom: var(--s);" class="card-wrapper max-width-700">
+                    <small>text-link</small>
+                    <p class="text-link">Text link</p>
+                </div>
+            </div>
+        </div>
+        <div id="Toast" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Toast</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="button btn-primary" onclick="showToast()">Click</div>
+                <div class='toast hidden'>
+                    <div class='bg-primary'>
+                        <p>props.msg</p>
+                        <div class='toast-button-close' onclick="showToast()">
+                            x
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Tooltip" style="padding-top: var(--padding-top-to-header)">
+            <h1 class="section-title-with-marker">Tooltip</h1>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Class</div>
+                <pre><code class="language-css"></code></pre>
+            </div>
+            <br/>
+            <div class="preview__box">
+                <div class="preview__header" style="font-size: var(--s)">Example</div>
+                <pre><code class="language-html"></code></pre>
+            </div>
+            <br/>
+            <div class="card-wrapper max-width-500">
+                <h3>Example</h3>
+                <div class="flex-ais-jcs gap-m">
+                    <p class="cursor-pointer" data-tooltip="Java">Java</p>
+                    <p class="cursor-pointer" data-tooltip="Elixir">Elixir</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    footer
+</footer>
+<script src="data.js"></script>
+<script>
+    let aside = document.getElementsByTagName('aside')[0];
+
+    function changeTheme() {
+        let body = document.getElementsByTagName("body")[0];
+        body.classList.toggle('dark-mode');
+
+        let buttonThemeMode = document.getElementsByClassName('example-button-change-theme')[0];
+        if (buttonThemeMode.textContent.includes('Dark')) {
+            buttonThemeMode.textContent = 'Light Mode';
+        } else {
+            buttonThemeMode.textContent = 'Dark Mode';
+        }
+    }
+
+    function minifySidebar() {
+        aside.classList.toggle('active')
+    }
+
+    function showMenu() {
+        aside.classList.toggle('show')
+
+        let iconGetMenu = document.getElementById('get-menu');
+        iconGetMenu.classList.toggle('opened')
+    }
+
+    function showModal() {
+        let modal = document.getElementsByClassName('modal')[0];
+        modal.classList.toggle('hide')
+    }
+
+    function showToast() {
+        let toast = document.getElementsByClassName('toast')[0];
+        toast.classList.toggle('hidden')
+    }
+</script>
+</body>
+</html>
