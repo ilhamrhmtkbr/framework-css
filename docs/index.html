@@ -11,6 +11,7 @@
             grid-template-columns: 1fr 1fr;
             text-align: start;
             gap: var(--xxx);
+            max-width: 80vw;
         }
 
         section h1 {
@@ -346,6 +347,13 @@
             left: 80vw;
             top: 60vh;
         }
+
+        @media screen and (max-width: 950px){
+            section{
+                grid-template-columns: 1fr;
+                max-width: 90vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -393,7 +401,7 @@
     </ul>
 
     <main>
-        <section class="max-width-900 card-wrapper">
+        <section class="card-wrapper">
             <div>
                 <h1>iamra.css</h1>
                 <br>
