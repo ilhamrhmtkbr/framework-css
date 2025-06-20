@@ -1,6 +1,6 @@
 {
   "name": "iamra-css",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "by Ilham Rahmat Akbar, terinspirasi dari style Google.",
   "main": "dist/iamra.css",
   "style": "dist/iamra.css",

@@ -11,7 +11,6 @@
 - Memperbarui `docs/example.html` untuk mencerminkan perubahan `style.css`
 - Memperbaiki tautan demo di `README.md`
 
-
 ## [1.0.2] - 2025-06-20
 ### Changed
 - Update layout responsif pada halaman utama

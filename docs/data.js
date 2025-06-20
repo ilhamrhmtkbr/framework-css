@@ -1,5 +1,8 @@
 const code = [
-    `@font-face {
+    `/* You need to adjust the font replacement in CSS files/other
+style html tags first, so that the fonts work properly.
+
+@font-face {
     font-family: Light;
     src: url("../fonts/Poppins-Light.ttf");
 }
@@ -18,6 +21,7 @@ const code = [
     font-family: Bold;
     src: url("../fonts/Poppins-Bold.ttf");
 }
+ */
 
 :root {
     --bg-color: #ffffff;
@@ -56,7 +60,7 @@ const code = [
     --radius-l: .575rem;
     --radius-m: .375rem;
     --radius-s: .275rem;
-    --padding-top-to-header: calc((var(--xs) * 5) + var(--xxx));
+    --ideal-distance-to-header: calc((var(--xs) * 5) + var(--xxx));
 }
 
 body.dark-mode {
@@ -121,8 +125,6 @@ main {
     min-height: 100dvh;
     margin-left: auto;
     margin-right: auto;
-    padding-top: var(--padding-top-to-header);
-    padding-bottom: var(--padding-top-to-header);
     grid-auto-rows: max-content;
 }
 
@@ -134,6 +136,8 @@ section {
     display: grid;
     grid-auto-rows: max-content;
     gap: var(--xx);
+    padding-top: var(--ideal-distance-to-header);
+    padding-bottom: var(--ideal-distance-to-header);
 }
 
 a {
@@ -144,6 +148,14 @@ a {
 ul,
 ol {
     margin-left: var(--m);
+}
+
+.padding-top-ideal-distance-to-header{
+    padding-top: var(--ideal-distance-to-header) !important;
+}
+
+.margin-top-ideal-distance-to-header{
+    margin-top: var(--ideal-distance-to-header) !important;
 }`,
     `<!DOCTYPE html>
 <html lang="en">

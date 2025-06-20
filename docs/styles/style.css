@@ -149,9 +149,12 @@ ol {
     margin-left: var(--m);
 }
 
-.padding-vertical-ideal-distance-to-header{
-    padding-top: var(--ideal-distance-to-header);
-    padding-bottom: var(--ideal-distance-to-header);
+.padding-top-ideal-distance-to-header{
+    padding-top: var(--ideal-distance-to-header) !important;
+}
+
+.margin-top-ideal-distance-to-header{
+    margin-top: var(--ideal-distance-to-header) !important;
 }
 
 /* Background */
