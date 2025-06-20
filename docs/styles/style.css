@@ -1,3 +1,6 @@
+/* You need to adjust the font replacement in CSS files/other
+style html tags first, so that the fonts work properly.
+
 @font-face {
     font-family: Light;
     src: url("../fonts/Poppins-Light.ttf");
@@ -17,6 +20,7 @@
     font-family: Bold;
     src: url("../fonts/Poppins-Bold.ttf");
 }
+ */
 
 :root {
     --bg-color: #ffffff;
@@ -55,7 +59,7 @@
     --radius-l: .575rem;
     --radius-m: .375rem;
     --radius-s: .275rem;
-    --padding-top-to-header: calc((var(--xs) * 5) + var(--xxx));
+    --ideal-distance-to-header: calc((var(--xs) * 5) + var(--xxx));
 }
 
 body.dark-mode {
@@ -120,8 +124,6 @@ main {
     min-height: 100dvh;
     margin-left: auto;
     margin-right: auto;
-    padding-top: var(--padding-top-to-header);
-    padding-bottom: var(--padding-top-to-header);
     grid-auto-rows: max-content;
 }
 
@@ -133,6 +135,8 @@ section {
     display: grid;
     grid-auto-rows: max-content;
     gap: var(--xx);
+    padding-top: var(--ideal-distance-to-header);
+    padding-bottom: var(--ideal-distance-to-header);
 }
 
 a {
@@ -143,6 +147,11 @@ a {
 ul,
 ol {
     margin-left: var(--m);
+}
+
+.padding-vertical-ideal-distance-to-header{
+    padding-top: var(--ideal-distance-to-header);
+    padding-bottom: var(--ideal-distance-to-header);
 }
 
 /* Background */
@@ -186,7 +195,7 @@ ol {
     border-radius: 999px;
     box-sizing: border-box;
     width: max-content;
-    max-width: 75vw;
+    max-width: 75dvw;
     height: max-content;
     font-size: var(--s);
 }
@@ -271,7 +280,7 @@ ol {
     border-radius: var(--radius-s);
     border: var(--border);
     width: max-content;
-    max-width: 85vw;
+    max-width: 85dvw;
     color: var(--link-color);
 }
 
@@ -583,7 +592,7 @@ ol {
 
 /* -- dimen swiper -- */
 .swiper {
-    width: 70vw;
+    width: 70dvw;
 }
 
 /* -- dimen width -- */
@@ -591,8 +600,8 @@ ol {
     width: 100%;
 }
 
-.w-full-vw {
-    width: 100vw;
+.w-full-dvw {
+    width: 100dvw;
 }
 
 .w-max-content {
@@ -601,34 +610,42 @@ ol {
 
 .max-width-1000 {
     max-width: 1000px;
+    width: 100%;
 }
 
 .max-width-900 {
     max-width: 900px;
+    width: 100%;
 }
 
 .max-width-800 {
     max-width: 800px;
+    width: 100%;
 }
 
 .max-width-700 {
     max-width: 700px;
+    width: 100%;
 }
 
 .max-width-600 {
     max-width: 600px;
+    width: 100%;
 }
 
 .max-width-500 {
     max-width: 500px;
+    width: 100%;
 }
 
 .max-width-400 {
     max-width: 400px;
+    width: 100%;
 }
 
 .max-width-300 {
     max-width: 300px;
+    width: 100%;
 }
 
 /* Dimen */
@@ -1032,7 +1049,7 @@ footer {
 
 .modal-box {
     margin: auto;
-    width: 75vw;
+    width: 75dvw;
     max-height: 90dvh;
     background-color: var(--bg-color);
     box-sizing: border-box;
@@ -1119,7 +1136,7 @@ footer {
     box-sizing: border-box;
     position: fixed;
     left: 0;
-    top: var(--padding-top-to-header);
+    top: var(--ideal-distance-to-header);
     border-right: 1px solid var(--border-color);
     padding-bottom: var(--m);
     background-color: var(--bg-color);
@@ -1221,10 +1238,6 @@ footer {
 
 .sidebar-menu.active .sidebar-menu-item{
     width: max-content;
-}
-
-.sidebar-menu + section:nth-of-type(1) {
-    padding-top: 0;
 }
 
 /* Sidebar */
@@ -1338,7 +1351,7 @@ td.action :hover {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 6px;
+    width: calc(var(--xxs) / 2 + 1px);
     height: var(--xx);
     background-color: var(--blue-color);
     border-radius: 90px;
@@ -1352,7 +1365,7 @@ td.action :hover {
     color: var(--blue-color);
     padding-left: var(--s);
     width: max-content;
-    max-width: 85vw;
+    max-width: 85dvw;
     height: max-content;
     box-sizing: border-box;
     hyphens: auto;
@@ -1433,7 +1446,7 @@ td.action :hover {
     display: flex;
     align-items: center;
     gap: var(--m);
-    max-width: 75vw;
+    max-width: 75dvw;
     height: max-content;
     box-sizing: border-box;
 }
@@ -1515,8 +1528,8 @@ td.action :hover {
     .sidebar-menu {
         z-index: 111;
         top: calc(var(--xs) * 5);
-        left: -90vw;
-        width: 70vw;
+        left: -90dvw;
+        width: 70dvw;
         bottom: 0;
         transition: .3s;
     }
@@ -1527,10 +1540,6 @@ td.action :hover {
 
     .sidebar-menu + section {
         padding-left: var(--m);
-    }
-
-    .sidebar-menu + section:nth-of-type(1) {
-        padding-top: 0;
     }
 
     .navigation {
@@ -1622,6 +1631,6 @@ td.action :hover {
     }
 
     form .text-danger {
-        max-width: 70vw;
+        max-width: 70dvw;
     }
 }

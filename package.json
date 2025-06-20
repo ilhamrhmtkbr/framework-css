@@ -1,6 +1,6 @@
 {
   "name": "iamra-css",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "by Ilham Rahmat Akbar, terinspirasi dari style Google.",
   "main": "dist/iamra.css",
   "style": "dist/iamra.css",
@@ -28,7 +28,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ilhamrhmtkbr/iamra-css.git"
+    "url": "git+https://github.com/ilhamrhmtkbr/framework-css.git"
   },
-  "homepage": "https://github.com/ilhamrhmtkbr/iamra-css#readme"
+  "homepage": "https://ilhamrhmtkbr.github.io/framework-css/"
 }
