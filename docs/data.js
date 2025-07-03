@@ -111,7 +111,7 @@ html {
 
 body {
     font-size: var(--m);
-    font-family: Regular, sans-serif;
+    font-family: Regular, ui-sans-serif;
     color: var(--text-color);
     background-color: var(--bg-color);
 }
@@ -197,6 +197,8 @@ ol {
         <a href="example.html">Example</a>
     </nav>
     <main>
+    <section></section>
+    <section></section>
     <aside class="sidebar-menu">
         <div class="sidebar-menu-title sidebar-menu-item" onclick="minifySidebar()">
             <svg class="sidebar-menu-button-svg">
@@ -228,8 +230,6 @@ ol {
             </details>
         </div>
     </aside>
-    <section></section>
-    <section></section>
     <footer>
         ...
     </footer>
@@ -389,7 +389,7 @@ ol {
     min-width: 77px;
     width: max-content;
     border-radius: var(--radius-s);
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
     font-size: var(--s);
 }
 
@@ -548,7 +548,7 @@ ol {
 }
 
 .card-wrapper-title {
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
     font-size: var(--l);
 }
 
@@ -614,7 +614,7 @@ ol {
 .data-box h2,
 .data-box h3 {
     text-transform: capitalize;
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
 }
 
 .data-content {
@@ -624,7 +624,7 @@ ol {
 }
 
 .data-key {
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
     text-transform: capitalize;
 }
 
@@ -812,19 +812,19 @@ ol {
 }`,
     `<div class="flex-aic-jca"></div>`,
     `.font-bold {
-    font-family: Bold, sans-serif;
+    font-family: Bold, ui-sans-serif;
 }
 
 .font-medium {
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
 }
 
 .font-regular {
-    font-family: Regular, sans-serif;
+    font-family: Regular, ui-sans-serif;
 }
 
 .font-light {
-    font-family: Light, sans-serif;
+    font-family: Light, ui-sans-serif;
 }`,
     `<div class="font-medium"></div>`,
     `fieldset {
@@ -842,7 +842,7 @@ legend {
     margin-left: var(--xs);
     padding: 0 var(--xxs);
     font-size: var(--s);
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
     color: var(--link-color);
 }
 
@@ -891,11 +891,12 @@ input::-webkit-file-upload-button {
     outline: none;
     color: var(--blue-color);
     background-color: var(--bg-color);
-    padding: var(--xxs) var(--s);
-    min-width: 77px;
-    border-radius: var(--radius-m);
+    padding: 7px var(--xs);
+    min-width: 63px;
+    border-radius: var(--radius-s);
     transition: .2s;
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
+    font-size: var(--s);
 }
 
 input::-webkit-file-upload-button:hover {
@@ -913,7 +914,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 label {
     text-transform: capitalize;
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
 }
 
 .dark-mode input[type='date']::-webkit-calendar-picker-indicator {
@@ -1231,7 +1232,7 @@ footer {
     margin-bottom: var(--m);
     border-bottom: var(--border);
     font-size: var(--l);
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
     font-weight: bold;
 }
 
@@ -1270,7 +1271,7 @@ footer {
     justify-content: center;
     gap: var(--m);
     align-items: center;
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
 }
 
 .pagination-prev:hover,
@@ -1307,23 +1308,23 @@ footer {
     box-sizing: border-box;
     position: fixed;
     left: 0;
-    top: var(--padding-top-to-header);
+    top: var(--ideal-distance-to-header);
     border-right: 1px solid var(--border-color);
     padding-bottom: var(--m);
     background-color: var(--bg-color);
 }
 
-.sidebar-menu.active {
+main.has-sidebar.active .sidebar-menu {
     width: calc(var(--s) + var(--m) + var(--m));
 }
 
-.sidebar-menu.active p,
-.sidebar-menu.active span {
+main.has-sidebar.active p,
+main.has-sidebar.active span {
     display: none;
 }
 
 .sidebar-menu-title {
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
     font-size: var(--s);
     border-bottom: var(--border);
 }
@@ -1374,10 +1375,10 @@ footer {
     transition: opacity 0.3s, visibility 0.3s;
     box-shadow: var(--box-shadow);
     border: var(--border);
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
 }
 
-.sidebar-menu.active .sidebar-menu-item[data-title]:hover::after {
+main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
     visibility: visible;
     opacity: 1;
 }
@@ -1403,16 +1404,16 @@ footer {
     padding-left: calc(253px + var(--m));
 }
 
-.sidebar-menu.active + section {
+main.has-sidebar section {
+    padding-left: calc(253px + var(--m));
+}
+
+main.has-sidebar.active section {
     padding-left: calc(var(--s) + var(--m) + var(--m) + var(--m));
 }
 
-.sidebar-menu.active .sidebar-menu-item{
+main.has-sidebar.active .sidebar-menu-item{
     width: max-content;
-}
-
-.sidebar-menu + section:nth-of-type(1) {
-    padding-top: 0;
 }`,
     `<aside class="sidebar-menu">
     <div class="sidebar-menu-button">
@@ -1568,9 +1569,9 @@ td.action :hover {
     </table>
 </div>`,
     `.section-title {
-    font-size: var(--xxxx);
+    font-size: var(--x);
     text-align: center;
-    font-family: Bold, sans-serif;
+    font-family: Medium, ui-sans-serif;
 }
 
 .section-title-with-marker::before {
@@ -1579,21 +1580,20 @@ td.action :hover {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 6px;
+    width: calc(var(--xxs) / 2 + 2px);
     height: var(--xx);
     background-color: var(--blue-color);
     border-radius: 90px;
 }
 
 .section-title-with-marker {
-    font-size: var(--xx);
+    font-size: var(--x);
     position: relative;
-    font-family: Bold, sans-serif;
-    font-weight: bold;
+    font-family: Medium, ui-sans-serif;
     color: var(--blue-color);
     padding-left: var(--s);
     width: max-content;
-    max-width: 85vw;
+    max-width: 85dvw;
     height: max-content;
     box-sizing: border-box;
     hyphens: auto;
@@ -1639,7 +1639,7 @@ td.action :hover {
 }
 
 .text-error-msg {
-    font-family: Light, sans-serif;
+    font-family: Light, ui-sans-serif;
     font-size: var(--s);
     font-weight: bold;
     color: var(--red-color);
@@ -1738,7 +1738,7 @@ td.action :hover {
     border-radius: 5px;
     bottom: -2.5rem;
     font-size: var(--xs);
-    font-family: Medium, sans-serif;
+    font-family: Medium, ui-sans-serif;
     left: 0
 }`,
     `<a class="sidebar-menu-item" data-tooltip="Background" href="#Background">`

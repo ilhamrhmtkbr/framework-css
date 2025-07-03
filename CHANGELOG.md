@@ -1,3 +1,7 @@
+## [1.0.7] - 2025-07-03
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` mengubah beberapa sistem layouting dan fix beberapa style yang tidak sesuai
+
 ## [1.0.2] - 2025-06-21
 ### Changed
 - Menambahkan `CHANGELOG.md`
