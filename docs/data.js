@@ -829,29 +829,35 @@ ol {
     `<div class="font-medium"></div>`,
     `fieldset {
     outline: none;
-    border: 2px solid var(--link-color);
+    border: 2px solid var(--text-color);
     border-radius: var(--radius-m);
-    padding: 1px;
     box-sizing: border-box;
     width: 100%;
     max-width: 325px;
     height: max-content;
+    padding: 0 var(--xxs) 3px var(--xxs);
 }
 
 legend {
-    margin-left: var(--xs);
+    margin-left: var(--xxs);
     padding: 0 var(--xxs);
     font-size: var(--s);
     font-family: Medium, ui-sans-serif;
-    color: var(--link-color);
+    color: var(--text-color);
 }
 
 fieldset input {
     border: none;
     border-radius: var(--radius-m);
     outline: none;
-    padding: var(--xs);
+    padding: 0;
     padding-top: 1px;
+    font-size: var(--m);
+}
+
+label {
+    text-transform: capitalize;
+    font-family: Medium, ui-sans-serif;
 }
 
 input,
@@ -912,11 +918,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-label {
-    text-transform: capitalize;
-    font-family: Medium, ui-sans-serif;
-}
-
 .dark-mode input[type='date']::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
@@ -938,65 +939,121 @@ textarea.textarea-clear-style {
     border: unset;
     padding: unset;
     border-radius: unset;
-}`,
-    `<form class="card-wrapper replace-shadow-with-border">
-    <h3 class="text-center">Login</h3>
-    <fieldset class="ps-center">
-        <legend>Username</legend>
-        <input type="text"/>
-        <p class="text-error-msg">Error</p>
-    </fieldset>
-    <fieldset class="ps-center">
-        <legend>Password</legend>
-        <input type="password"/>
-        <p class="text-error-msg">Error</p>
-    </fieldset>
-    <button type="submit" class="button bg-primary ps-center">Submit</button>
-</form>
+}
 
-<form class="card-wrapper replace-shadow-with-border">
-    <h3 class="text-center">Register</h3>
-    <div class="max-width-500">
-        <div class="flex-ais-jcs">
-            <label for="username">username</label>
-            <input name="username" type="text" placeholder="input" id="username"/>
+.form-like-google {
+    position: relative;
+}
+
+.form-like-google-label {
+    position: absolute;
+    left: var(--m);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--link-color);
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.form-like-google-input{
+    border-width: 2px;
+}
+
+.form-like-google-input:focus,
+.form-like-google-input:not(:placeholder-shown) {
+    border-color: var(--blue-color);
+}
+
+.form-like-google-input:focus + .form-like-google-label,
+.form-like-google-input:not(:placeholder-shown) + .form-like-google-label {
+    top: 0;
+    font-size: var(--s);
+    background-color: var(--bg-color);
+    color: var(--blue-color);
+    padding: 0 4px;
+}
+`,
+    `<h3>Example</h3>
+<div>
+    <form class="card-wrapper replace-shadow-with-border">
+        <h3 class="text-center">Login</h3>
+        <fieldset class="ps-center">
+            <legend>Username</legend>
+            <input type="text"/>
+            <p class="text-error-msg">Error</p>
+        </fieldset>
+        <fieldset class="ps-center">
+            <legend>Password</legend>
+            <input type="password"/>
+            <p class="text-error-msg">Error</p>
+        </fieldset>
+        <button type="submit" class="button bg-primary ps-center">Submit</button>
+    </form>
+
+    <br/>
+    <form class="card-wrapper replace-shadow-with-border">
+        <h3 class="text-center">Register</h3>
+        <div class="max-width-500">
+            <div class="flex-ais-jcs">
+                <label for="username">username</label>
+                <input name="username" type="text" placeholder="input" id="username"/>
+            </div>
+            <p class="text-error-msg">Error</p>
         </div>
-        <p class="text-error-msg">Error</p>
-    </div>
-    <div class="max-width-500">
-        <div class="flex-ais-jcs">
-            <label for="option">option</label>
-            <select name="option" id="option">
-                <option value="a">a</option>
-                <option value="b">b</option>
-                <option value="c">c</option>
-            </select>
+        <div class="max-width-500">
+            <div class="flex-ais-jcs">
+                <label for="option">option</label>
+                <select name="option" id="option">
+                    <option value="a">a</option>
+                    <option value="b">b</option>
+                    <option value="c">c</option>
+                </select>
+            </div>
+            <p class="text-error-msg">Error</p>
         </div>
-        <p class="text-error-msg">Error</p>
-    </div>
-    <div class="max-width-500">
-        <div class="flex-ais-jcs">
-            <label for="desc">desc</label>
-            <textarea name="desc" id="desc"></textarea>
+        <div class="max-width-500">
+            <div class="flex-ais-jcs">
+                <label for="desc">desc</label>
+                <textarea name="desc" id="desc"></textarea>
+            </div>
+            <p class="text-error-msg">Error</p>
         </div>
-        <p class="text-error-msg">Error</p>
-    </div>
-    <div class="max-width-500">
-        <div class="flex-ais-jcs">
-            <label for="files">name</label>
-            <input name="files" type="file" id="files"/>
+        <div class="max-width-500">
+            <div class="flex-ais-jcs">
+                <label for="files">resume</label>
+                <input name="files" type="file" id="files"/>
+            </div>
+            <p class="text-error-msg">Error</p>
         </div>
-        <p class="text-error-msg">Error</p>
-    </div>
-    <div class="max-width-500">
-        <div class="flex-ais-jcs">
-            <label id="dob">date of birth</label>
-            <input name="dob" type="date" />
+        <div class="max-width-500">
+            <div class="flex-ais-jcs">
+                <label for="dob">date of birth</label>
+                <input name="dob" type="date" id="dob"/>
+            </div>
+            <p class="text-error-msg">Error</p>
         </div>
-        <p class="text-error-msg">Error</p>
-    </div>
-    <button type="submit" class="button bg-primary ps-center">Submit</button>
-</form>`,
+        <button type="submit" class="button bg-primary ps-center">Submit</button>
+    </form>
+    <br/>
+    <form class="card-wrapper replace-shadow-with-border">
+        <h3 class="text-center">Login like google</h3>
+        <div class="max-width-500">
+            <div class="form-like-google">
+                <input class="form-like-google-input" name="email" type="email" placeholder=" " id="email"/>
+                <label class="form-like-google-label" for="email">Email</label>
+            </div>
+            <p class="text-error-msg">Error</p>
+        </div>
+        <div class="max-width-500">
+            <div class="form-like-google">
+                <input class="form-like-google-input" name="password" type="password" placeholder=" " id="password"/>
+                <label class="form-like-google-label" for="password">Password</label>
+            </div>
+            <p class="text-error-msg">Error</p>
+        </div>
+        <button type="submit" class="button bg-primary ps-center">Submit</button>
+    </form>
+</div>`,
     `.get-menu {
     display: none;
 }
@@ -1333,8 +1390,7 @@ main.has-sidebar.active span {
     display: grid;
     text-transform: capitalize;
     max-height: 77dvh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: auto;
 }
 
 .sidebar-menu-element details {
@@ -1395,9 +1451,9 @@ main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
     color: var(--blue-color);
 }
 
-.sidebar-menu-item:hover .sidebar-menu-button-svg {
+.sidebar-menu-item:hover .sidebar-menu-button-svg,
+.sidebar-menu-item.active .sidebar-menu-button-svg{
     fill: var(--blue-color);
-    stroke: var(--blue-color);
 }
 
 .sidebar-menu + section {

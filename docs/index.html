@@ -354,6 +354,26 @@
                 max-width: 90vw;
             }
         }
+
+        @font-face {
+            font-family: Light;
+            src: url("./fonts/Poppins-Light.ttf");
+        }
+
+        @font-face {
+            font-family: Regular;
+            src: url("./fonts/Poppins-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: Medium;
+            src: url("./fonts/Poppins-Medium.ttf");
+        }
+
+        @font-face {
+            font-family: Bold;
+            src: url("./fonts/Poppins-Bold.ttf");
+        }
     </style>
 </head>
 <body>
@@ -406,7 +426,7 @@
                 <h1>iamra.css</h1>
                 <br>
                 <p>This is a lightweight, easy to use, adaptive, responsive, customizable, and
-                    structured CSS framework.</p>
+                    structured CSS framework. Only 20 kb</p>
                 <br>
 
                 <a class="button bg-primary" href="example.html">Explore.</a>
@@ -426,7 +446,10 @@
                 </pre>
                 </div>
                 <br>
-                <a href="styles/style.css" download class="text-primary">Download Css</a>
+                <div class="flex-ais-jcs gap-m">
+                    <a href="styles/style.css" download class="text-primary">Download Css</a>
+                    <a href="styles/style-min.css" download class="text-primary">Download Minify Css</a>
+                </div>
             </div>
         </section>
     </main>

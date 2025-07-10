@@ -149,11 +149,11 @@ ol {
     margin-left: var(--m);
 }
 
-.padding-top-ideal-distance-to-header{
+.padding-top-ideal-distance-to-header {
     padding-top: var(--ideal-distance-to-header) !important;
 }
 
-.margin-top-ideal-distance-to-header{
+.margin-top-ideal-distance-to-header {
     margin-top: var(--ideal-distance-to-header) !important;
 }
 
@@ -865,6 +865,38 @@ textarea.textarea-clear-style {
     border-radius: unset;
 }
 
+.form-like-google {
+    position: relative;
+}
+
+.form-like-google-label {
+    position: absolute;
+    left: var(--m);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--link-color);
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.form-like-google-input{
+    border-width: 2px;
+}
+
+.form-like-google-input:focus,
+.form-like-google-input:not(:placeholder-shown) {
+    border-color: var(--blue-color);
+}
+
+.form-like-google-input:focus + .form-like-google-label,
+.form-like-google-input:not(:placeholder-shown) + .form-like-google-label {
+    top: 0;
+    font-size: var(--s);
+    background-color: var(--bg-color);
+    color: var(--blue-color);
+    padding: 0 4px;
+}
+
 /* Form */
 
 
@@ -1165,8 +1197,7 @@ main.has-sidebar.active .sidebar-menu span {
     display: grid;
     text-transform: capitalize;
     max-height: 77dvh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: auto;
 }
 
 .sidebar-menu-element details {
@@ -1227,9 +1258,9 @@ main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
     color: var(--blue-color);
 }
 
-.sidebar-menu-item:hover .sidebar-menu-button-svg {
+.sidebar-menu-item:hover .sidebar-menu-button-svg,
+.sidebar-menu-item.active .sidebar-menu-button-svg {
     fill: var(--blue-color);
-    stroke: var(--blue-color);
 }
 
 main.has-sidebar section {
@@ -1240,7 +1271,7 @@ main.has-sidebar.active section {
     padding-left: calc(var(--s) + var(--m) + var(--m) + var(--m));
 }
 
-main.has-sidebar.active .sidebar-menu-item{
+main.has-sidebar.active .sidebar-menu-item {
     width: max-content;
 }
 
