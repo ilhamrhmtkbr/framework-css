@@ -1278,11 +1278,24 @@ footer {
     100% {
         width: 100%;
     }
-}`,
+}
+
+.loading-pulse {
+    background: linear-gradient(90deg, var(--border-color), var(--translink-color) 50%, var(--border-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+`,
     `<div class="loading-spinner"></div>
 <div class="loading-bar max-width-400">
     <div class="loading-bar-progress with-animation-progress"></div>
 </div>
+<div class="loading-pulse" style="width: 111px; height: 111px; border-radius: 12px"></div>
 `,
     `.modal {
     position: fixed;

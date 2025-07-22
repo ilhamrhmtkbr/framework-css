@@ -1,4 +1,10 @@
-## [1.0.8] - 2025-07-10
+## [1.1.1] - 2025-07-10
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Menambahkan loading tipe pulse
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+
+## [1.1.0] - 2025-07-10
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
   - Menambahkan loading tipe progress
