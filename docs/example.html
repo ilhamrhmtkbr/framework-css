@@ -46,7 +46,7 @@
             border-bottom-left-radius: var(--radius-s);
         }
 
-        .hidden{
+        .hidden {
             display: none;
         }
 
@@ -151,7 +151,8 @@
         <path d="M0 1486V197C0 89 326 0 725 0h4740c400 0 725 89 725 197v1289c0 109-325 197-725 197H725c-399 0-725-88-725-197zm0 4507V4704c0-108 326-197 725-197h4740c400 0 725 89 725 197v1289c0 109-325 197-725 197H725c-399 0-725-88-725-197z"></path>
     </symbol>
     <symbol fill-rule="evenodd" viewBox="0 0 549 481" id="image">
-        <path d="M36 2h477c18 0 34 16 34 34v409c0 18-16 34-34 34H36c-18 0-34-16-34-34V36C2 18 18 2 36 2zm393 69c-28 0-51 22-51 51 0 28 23 51 51 51s51-23 51-51c0-29-23-51-51-51zm50 322v-70L376 221c-3-3-7-5-12-5s-9 2-11 5l-44 42 130 130h40zm-409 0h321L285 287l-91-91c-4-3-8-5-12-5-5 0-9 2-13 5l-99 98v99z" stroke="#332c2b" stroke-width="4.417"></path>
+        <path d="M36 2h477c18 0 34 16 34 34v409c0 18-16 34-34 34H36c-18 0-34-16-34-34V36C2 18 18 2 36 2zm393 69c-28 0-51 22-51 51 0 28 23 51 51 51s51-23 51-51c0-29-23-51-51-51zm50 322v-70L376 221c-3-3-7-5-12-5s-9 2-11 5l-44 42 130 130h40zm-409 0h321L285 287l-91-91c-4-3-8-5-12-5-5 0-9 2-13 5l-99 98v99z"
+              stroke="#332c2b" stroke-width="4.417"></path>
     </symbol>
     <symbol fill-rule="evenodd" viewBox="0 0 5843 5843" id="loading">
         <path d="M4151 3343c-196 435-632 737-1140 737-689 0-1248-559-1248-1249 0-507 302-943 736-1139 634-285 692-1175 117-1549-254-165-549-188-826-65C735 546 0 1603 0 2831c0 1664 1348 3012 3011 3012 1229 0 2285-736 2754-1790 123-277 99-572-66-826-373-575-1263-517-1548 116z"></path>
@@ -708,42 +709,32 @@
                     <form class="card-wrapper replace-shadow-with-border">
                         <h3 class="text-center">Register</h3>
                         <div class="max-width-500">
-                            <div class="flex-ais-jcs">
-                                <label for="username">username</label>
-                                <input name="username" type="text" placeholder="input" id="username"/>
-                            </div>
+                            <label for="username">username</label>
+                            <input name="username" type="text" placeholder="input" id="username"/>
                             <p class="text-error-msg">Error</p>
                         </div>
                         <div class="max-width-500">
-                            <div class="flex-ais-jcs">
-                                <label for="option">option</label>
-                                <select name="option" id="option">
-                                    <option value="a">a</option>
-                                    <option value="b">b</option>
-                                    <option value="c">c</option>
-                                </select>
-                            </div>
+                            <label for="option">option</label>
+                            <select name="option" id="option">
+                                <option value="a">a</option>
+                                <option value="b">b</option>
+                                <option value="c">c</option>
+                            </select>
                             <p class="text-error-msg">Error</p>
                         </div>
                         <div class="max-width-500">
-                            <div class="flex-ais-jcs">
-                                <label for="desc">desc</label>
-                                <textarea name="desc" id="desc"></textarea>
-                            </div>
+                            <label for="desc">desc</label>
+                            <textarea name="desc" id="desc"></textarea>
                             <p class="text-error-msg">Error</p>
                         </div>
                         <div class="max-width-500">
-                            <div class="flex-ais-jcs">
-                                <label for="files">resume</label>
-                                <input name="files" type="file" id="files"/>
-                            </div>
+                            <label for="files">resume</label>
+                            <input name="files" type="file" id="files"/>
                             <p class="text-error-msg">Error</p>
                         </div>
                         <div class="max-width-500">
-                            <div class="flex-ais-jcs">
-                                <label for="dob">date of birth</label>
-                                <input name="dob" type="date" id="dob"/>
-                            </div>
+                            <label for="dob">date of birth</label>
+                            <input name="dob" type="date" id="dob"/>
                             <p class="text-error-msg">Error</p>
                         </div>
                         <button type="submit" class="button bg-primary ps-center">Submit</button>
@@ -753,14 +744,16 @@
                         <h3 class="text-center">Login like google</h3>
                         <div class="max-width-500">
                             <div class="form-like-google">
-                                <input class="form-like-google-input" name="email" type="email" placeholder=" " id="email"/>
+                                <input class="form-like-google-input" name="email" type="email" placeholder=" "
+                                       id="email"/>
                                 <label class="form-like-google-label" for="email">Email</label>
                             </div>
                             <p class="text-error-msg">Error</p>
                         </div>
                         <div class="max-width-500">
                             <div class="form-like-google">
-                                <input class="form-like-google-input" name="password" type="password" placeholder=" " id="password"/>
+                                <input class="form-like-google-input" name="password" type="password" placeholder=" "
+                                       id="password"/>
                                 <label class="form-like-google-label" for="password">Password</label>
                             </div>
                             <p class="text-error-msg">Error</p>
@@ -847,6 +840,9 @@
             <div class="card-wrapper max-width-500">
                 <h3>Example</h3>
                 <div class="loading-spinner"></div>
+                <div class="loading-bar max-width-500">
+                    <div class="loading-bar-progress with-animation-progress"></div>
+                </div>
             </div>
         </div>
         <div id="Modal" class="padding-top-ideal-distance-to-header">
@@ -945,7 +941,9 @@
                             <td class="action">
                                 <a class="text-primary">save</a>
                                 <div class="text-success">edit</div>
-                                <form><button class="button-clear-style text-warning">delete</button></form>
+                                <form>
+                                    <button class="button-clear-style text-warning">delete</button>
+                                </form>
                             </td>
                         </tr>
                         </tbody>

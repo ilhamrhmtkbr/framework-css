@@ -6,32 +6,25 @@
     <link rel="stylesheet" href="styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        section{
-            place-self: center;
-            grid-template-columns: 1fr 1fr;
-            text-align: start;
-            gap: var(--xxx);
-            max-width: 80vw;
-        }
-
         section h1 {
             font-family: Bold, sans-serif;
             font-size: var(--xxx);
         }
 
-        main{
-            grid-auto-rows: 1fr;
+        section {
+            margin: var(--m);
+            grid-template-columns: 1fr 2fr;
         }
 
-        a{
+        a {
             font-family: Medium, sans-serif;
         }
 
-        a:hover{
+        a:hover {
             text-decoration: underline;
         }
 
-        .preview__header{
+        .preview__header {
             color: #d9dee3;
             background-color: #1a1b25;
             font-size: var(--s);
@@ -39,6 +32,19 @@
             padding: var(--s);
             border-top-right-radius: var(--radius-m);
             border-top-left-radius: var(--radius-m);
+            max-width: 700px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .preview__header div {
+            cursor: pointer;
+        }
+
+        .preview__header div:hover {
+            text-decoration: underline;
         }
 
         pre {
@@ -47,10 +53,32 @@
             height: max-content;
             border-bottom-left-radius: var(--radius-m);
             border-bottom-right-radius: var(--radius-m);
+            overflow: auto;
+            max-width: 700px;
+        }
+
+        pre::-webkit-scrollbar {
+            height: 7px;
         }
 
         code {
             height: max-content;
+        }
+
+        @media screen and (max-width: 1000px) {
+            section {
+                grid-template-columns: 1fr;
+                width: 90dvw !important;
+                max-width: 90dvw !important;
+            }
+
+            .preview__header {
+                max-width: 80dvw;
+            }
+
+            pre {
+                max-width: 80dvw;
+            }
         }
 
         @keyframes cube {
@@ -76,6 +104,7 @@
             overflow: hidden;
             z-index: -11;
         }
+
         .background li {
             position: absolute;
             top: 80vh;
@@ -88,6 +117,7 @@
             transform: scale(0) rotate(0deg) translate(-50%, -50%);
             animation: cube 6s ease-in forwards infinite;
         }
+
         .background li:nth-child(0) {
             animation-delay: 0s;
             left: 54vw;
@@ -348,13 +378,6 @@
             top: 60vh;
         }
 
-        @media screen and (max-width: 950px){
-            section{
-                grid-template-columns: 1fr;
-                max-width: 90vw;
-            }
-        }
-
         @font-face {
             font-family: Light;
             src: url("./fonts/Poppins-Light.ttf");
@@ -377,81 +400,115 @@
     </style>
 </head>
 <body>
-    <ul class="background">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+<ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
 
-    <main>
-        <section class="card-wrapper">
+<main style="place-content: center">
+    <section class="card-wrapper max-width-1000">
+        <div>
+            <h1>iamra.css</h1>
+            <br>
+            <p>This is a lightweight, easy to use, adaptive, responsive, customizable, and
+                structured CSS framework. Only 20 kb</p>
+            <br>
+
+            <a class="button bg-primary" href="example.html">Explore.</a>
+        </div>
+        <div>
+            <h4>How to use</h4>
+            <br>
             <div>
-                <h1>iamra.css</h1>
-                <br>
-                <p>This is a lightweight, easy to use, adaptive, responsive, customizable, and
-                    structured CSS framework. Only 20 kb</p>
-                <br>
+                <div class="preview__header">
+                    <span>install via npm</span>
+                    <div onclick="copyToClipboard('npm-link')">copy</div>
+                </div>
+                <pre id="npm-link">
 
-                <a class="button bg-primary" href="example.html">Explore.</a>
-            </div>
-            <div>
-                <br>
-                <br>
-                <br>
-
-                <h4>How to use</h4>
-                <br>
-                <div>
-                    <div class="preview__header">install via npm</div>
-                    <pre>
-
-    npm install iamra-css
+    npm install iamra-css@latest
                 </pre>
-                </div>
-                <br>
-                <div class="flex-ais-jcs gap-m">
-                    <a href="styles/style.css" download class="text-primary">Download Css</a>
-                    <a href="styles/style-min.css" download class="text-primary">Download Minify Css</a>
-                </div>
             </div>
-        </section>
-    </main>
+            <br/>
+            <div>
+                <div class="preview__header">
+                    <span>via unpkg</span>
+                    <div onclick="copyToClipboard('unpkg-link')">copy</div>
+                </div>
+                <pre id="unpkg-link">
+
+    &lt;link rel="stylesheet" href="https://unpkg.com/iamra-css/dist/style.css" /&gt;
+    </pre>
+            </div>
+            <br/>
+            <div>
+                <div class="preview__header">
+                    <span>via jsDelivr</span>
+                    <div onclick="copyToClipboard('cdn-link')">copy</div>
+                </div>
+                <pre id="cdn-link">
+
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iamra-css/dist/style.css" /&gt;
+    </pre>
+            </div>
+            <br/>
+            <div class="flex-ais-jcs gap-m">
+                <a href="styles/style.css" download class="text-primary">Download Css</a>
+                <a href="styles/style-min.css" download class="text-primary">Download Minify Css</a>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    function copyToClipboard(id) {
+        const el = document.getElementById(id);
+        const text = el.innerText || el.textContent;
+
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Copied to clipboard!");
+        }).catch(err => {
+            console.error("Failed to copy:", err);
+        });
+    }
+</script>
+
 </body>
 </html>

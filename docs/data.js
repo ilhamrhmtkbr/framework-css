@@ -994,59 +994,51 @@ textarea.textarea-clear-style {
     <form class="card-wrapper replace-shadow-with-border">
         <h3 class="text-center">Register</h3>
         <div class="max-width-500">
-            <div class="flex-ais-jcs">
-                <label for="username">username</label>
-                <input name="username" type="text" placeholder="input" id="username"/>
-            </div>
+            <label for="username">username</label>
+            <input name="username" type="text" placeholder="input" id="username"/>
             <p class="text-error-msg">Error</p>
         </div>
         <div class="max-width-500">
-            <div class="flex-ais-jcs">
-                <label for="option">option</label>
-                <select name="option" id="option">
-                    <option value="a">a</option>
-                    <option value="b">b</option>
-                    <option value="c">c</option>
-                </select>
-            </div>
+            <label for="option">option</label>
+            <select name="option" id="option">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+            </select>
             <p class="text-error-msg">Error</p>
         </div>
         <div class="max-width-500">
-            <div class="flex-ais-jcs">
-                <label for="desc">desc</label>
-                <textarea name="desc" id="desc"></textarea>
-            </div>
+            <label for="desc">desc</label>
+            <textarea name="desc" id="desc"></textarea>
             <p class="text-error-msg">Error</p>
         </div>
         <div class="max-width-500">
-            <div class="flex-ais-jcs">
-                <label for="files">resume</label>
-                <input name="files" type="file" id="files"/>
-            </div>
+            <label for="files">resume</label>
+            <input name="files" type="file" id="files"/>
             <p class="text-error-msg">Error</p>
         </div>
         <div class="max-width-500">
-            <div class="flex-ais-jcs">
-                <label for="dob">date of birth</label>
-                <input name="dob" type="date" id="dob"/>
-            </div>
+            <label for="dob">date of birth</label>
+            <input name="dob" type="date" id="dob"/>
             <p class="text-error-msg">Error</p>
         </div>
         <button type="submit" class="button bg-primary ps-center">Submit</button>
-    </form>
-    <br/>
-    <form class="card-wrapper replace-shadow-with-border">
+                    </form>
+                    <br/>
+                    <form class="card-wrapper replace-shadow-with-border">
         <h3 class="text-center">Login like google</h3>
         <div class="max-width-500">
             <div class="form-like-google">
-                <input class="form-like-google-input" name="email" type="email" placeholder=" " id="email"/>
+                <input class="form-like-google-input" name="email" type="email" placeholder=" "
+                       id="email"/>
                 <label class="form-like-google-label" for="email">Email</label>
             </div>
             <p class="text-error-msg">Error</p>
         </div>
         <div class="max-width-500">
             <div class="form-like-google">
-                <input class="form-like-google-input" name="password" type="password" placeholder=" " id="password"/>
+                <input class="form-like-google-input" name="password" type="password" placeholder=" "
+                       id="password"/>
                 <label class="form-like-google-label" for="password">Password</label>
             </div>
             <p class="text-error-msg">Error</p>
@@ -1246,8 +1238,52 @@ footer {
     100% {
         transform: rotate(360deg);
     }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-bar {
+    height: var(--s);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.loading-bar-progress {
+    height: 100%;
+    background: #0060fa;
+    width: 0%;
+    border-radius: 99px;
+}
+
+.loading-bar-progress.with-animation-progress {
+    animation: fillProgress 3s ease-out forwards;
+    
+}
+
+@keyframes fillProgress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
 }`,
-    `<div class="loading-spinner"></div>>`,
+    `<div class="loading-spinner"></div>
+<div class="loading-bar max-width-400">
+    <div class="loading-bar-progress with-animation-progress"></div>
+</div>
+`,
     `.modal {
     position: fixed;
     inset: 0;

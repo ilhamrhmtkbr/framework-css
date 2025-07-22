@@ -1,6 +1,13 @@
 ## [1.0.8] - 2025-07-10
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Menambahkan loading tipe progress
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+- Update `docs/index.html` , menambahkan link untuk cdn dan unpkg
+
+## [1.0.8] - 2025-07-10
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
   - Fix bug di sidebar, svg icon ngga ngefek pas ada class 'active'
   - Add form style seperti google
   - Minify `style.css` di `dist/`

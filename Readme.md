@@ -5,12 +5,22 @@
 ## 📦 Install
 ### Opsi 1
 ```
-npm install iamra-css
+npm install iamra-css@latest
 ```
 
 ### Opsi 2
 ```
 download manual css
+```
+
+### Opsi 3
+```
+https://cdn.jsdelivr.net/npm/iamra-css/dist/style.css
+```
+
+### Opsi 4
+```
+https://unpkg.com/iamra-css/dist/style.css
 ```
 
 ## 🌐 Demo
