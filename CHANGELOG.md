@@ -1,16 +1,24 @@
-## [1.1.2] - 2025-07-10
+## [1.1.3] - 2025-07-23
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Menambahkan class untuk accordion, stepper, timeline, dan toggle
+  - Mengubah layout pada section ketika ada class `has-sidebar`
+  - Menyesuaikan border pada bottom sheet
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+
+## [1.1.2] - 2025-07-23
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
   - Menambahkan bottom sheet
   - Minify `style.css` di `dist/` dan `docs/styles/`
   
-## [1.1.1] - 2025-07-10
+## [1.1.1] - 2025-07-22
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
   - Menambahkan loading tipe pulse
   - Minify `style.css` di `dist/` dan `docs/styles/`
 
-## [1.1.0] - 2025-07-10
+## [1.1.0] - 2025-07-22
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
   - Menambahkan loading tipe progress

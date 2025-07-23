@@ -235,6 +235,83 @@ ol {
     </footer>
 </body>
 </html>`,
+    `.accordion-item-check {
+    display: none;
+}
+
+.accordion-item-label {
+    display: grid;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: var(--m);
+    padding-bottom: 0;
+    border-bottom: var(--border);
+    border-color: transparent;
+}
+
+.accordion-item-label-subtitle {
+    font-family: Light, ui-sans-serif;
+    font-size: var(--s);
+}
+
+.accordion-item-check:checked + label {
+    padding-bottom: var(--m);
+    border-color: var(--link-color);
+}
+
+.accordion-content {
+    height: max-content;
+    max-height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-right: var(--xxs);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+.accordion-item-check:checked + label + .accordion-content {
+    max-height: 300px;
+    overflow-y: auto;
+}`,
+    `<div class="card-wrapper replace-shadow-with-border max-width-400">
+    <input type="checkbox" id="accordion-item1" class="accordion-item-check" />
+    <label for="accordion-item1" class="accordion-item-label">
+        <div>What is Lorem Ipsum?</div>
+        <div class="accordion-item-label-subtitle">
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry.
+        </div>
+    </label>
+    <div class="accordion-content">
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has survived
+            not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+</div>
+<div class="card-wrapper replace-shadow-with-border max-width-400">
+    <input type="checkbox" id="accordion-item2" class="accordion-item-check" />
+    <label for="accordion-item2" class="accordion-item-label">
+        <div>What is Lorem Ipsum?</div>
+        <div class="accordion-item-label-subtitle">Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry.
+        </div>
+    </label>
+    <div class="accordion-content">
+        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has survived
+            not only five centuries, but also the leap into electronic typesetting, remaining
+            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+</div>`,
     `.bg-primary {
     background-color: var(--blue-color);
 }
@@ -351,8 +428,11 @@ ol {
     background-color: var(--bg-color);
     height: 85dvh;
     width: 100dvw;
-    border: var(--border);
-    border-radius: var(--m);
+    border-top: var(--border);
+    border-left: var(--border);
+    border-right: var(--border);
+    border-top-left-radius: var(--radius-m);
+    border-top-right-radius: var(--radius-m);
     overflow: hidden;
     box-sizing: border-box;
     transition: .3s ease-in;
@@ -1620,6 +1700,70 @@ main.has-sidebar.active .sidebar-menu-item{
 ...
 </section>
 `,
+    `.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    column-gap: var(--m);
+    overflow-x: auto;
+    padding-bottom: var(--xxs);
+}
+
+.stepper::-webkit-scrollbar {
+    height: 7px;
+}
+
+.stepper-item {
+    display: flex;
+    align-items: center;
+    column-gap: var(--xxs);
+}
+
+.stepper-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--link-color);
+    font-size: var(--s);
+    font-family: Medium, ui-sans-serif;
+    cursor: pointer;
+}
+
+.stepper-key.active,
+.stepper-key:hover{
+    background-color: var(--blue-color);
+    color: white;
+}
+
+.stepper-value {
+    white-space: nowrap;
+    font-family: Medium, ui-sans-serif;
+}
+
+.stepper-divider {
+    height: 1px;
+    min-width: 111px;
+    background-color: var(--blue-color);
+}`,
+    `<div class="stepper">
+    <div class="stepper-item">
+        <div class="stepper-key active">1</div>
+        <div class="stepper-value">Resume</div>
+    </div>
+    <div class="stepper-divider"></div>
+    <div class="stepper-item">
+        <div class="stepper-key">2</div>
+        <div class="stepper-value">Email</div>
+    </div>
+    <div class="stepper-divider"></div>
+    <div class="stepper-item">
+        <div class="stepper-key">3</div>
+        <div class="stepper-value">Salary</div>
+    </div>
+</div>`,
     `.table-box {
     overflow: auto;
     font-size: var(--s);
@@ -1883,6 +2027,139 @@ td.action :hover {
             <SvgComp file={'common'} icon={'close'}/>
         </div>
     </div>
+</div>`,
+    `.timeline {
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: 1fr;
+}
+
+.timeline-item {
+    margin-top: var(--m);
+    display: flex;
+    align-items: start;
+    column-gap: var(--xs);
+}
+
+.timeline-key {
+    min-width: 41px;
+    min-height: 41px;
+    max-width: 41px;
+    max-height: 41px;
+    background-color: var(--link-color);
+    font-family: Medium, ui-sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 41px;
+    cursor: pointer;
+}
+
+.timeline-key.active,
+.timeline-key:hover{
+    background-color: var(--blue-color);
+    color: white;
+}
+
+.timeline-content{
+    overflow: auto;
+    height: max-content;
+    max-height: 300px;
+}
+
+.timeline-content-title{
+    font-family: Medium, ui-sans-serif;
+    font-size: var(--l);
+}
+
+.timeline-content-time{
+    font-family: Light, ui-sans-serif;
+    font-size: var(--xs);
+}
+
+.timeline-divider{
+    min-height: 63px;
+    width: 2px;
+    margin-left: 20px;
+    background-color: var(--blue-color);
+}`,
+    `<div class="timeline">
+    <div class="timeline-item">
+        <div class="timeline-key active">1</div>
+        <div class="timeline-content max-width-400">
+            <div class="timeline-content-title">Project Started</div>
+            <div class="timeline-content-desc">The amazing UI showcase project began</div>
+            <div class="timeline-content-time">2 hours ago</div>
+        </div>
+    </div>
+    <div class="timeline-divider"></div>
+    <div class="timeline-item">
+        <div class="timeline-key">2</div>
+        <div class="timeline-content max-width-400">
+            <div class="timeline-content-title">Components Added</div>
+            <div class="timeline-content-desc">All major UI components have been implemented</div>
+            <div class="timeline-content-time">1 hours ago</div>
+        </div>
+    </div>
+    <div class="timeline-divider"></div>
+    <div class="timeline-item">
+        <div class="timeline-key">3</div>
+        <div class="timeline-content max-width-400">
+            <div class="timeline-content-title">Deploy to Production</div>
+            <div class="timeline-content-desc">Ready for launch</div>
+            <div class="timeline-content-time">Upcoming</div>
+        </div>
+    </div>
+</div>`,
+    `.toggle {
+    position: relative;
+    display: inline-block;
+    width: 63px;
+    height: 33px;
+    border-radius: 33px;
+    cursor: pointer;
+    border: var(--border);
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.dark-mode .toggle {
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.1) -3px -3px 6px 1px inset;
+}
+
+.toggle-check {
+    display: none;
+}
+
+.toggle-slider {
+    display: block;
+    background-color: var(--third-bg-color);
+    transition: 0.3s ease;
+    border-radius: 33px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: var(--border);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.toggle-check:checked + .toggle-slider {
+    left: 34px;
+}
+
+.toggle-status {
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 60px;
+}`,
+    `<div class="flex-aic-jcs gap-m">
+    <label class="toggle">
+        <input type="checkbox" class="toggle-check">
+        <span class="toggle-slider"></span>
+    </label>
+    <span class="toggle-status">sample</span>
 </div>`,
     `[data-tooltip]:hover::after {
     visibility: visible

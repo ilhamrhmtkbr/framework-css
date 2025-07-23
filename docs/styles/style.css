@@ -157,6 +157,53 @@ ol {
     margin-top: var(--ideal-distance-to-header) !important;
 }
 
+/* Accordion */
+.accordion-item-check {
+    display: none;
+}
+
+.accordion-item-label {
+    display: grid;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: var(--m);
+    padding-bottom: 0;
+    border-bottom: var(--border);
+    border-color: transparent;
+}
+
+.accordion-item-label-subtitle {
+    font-family: Light, ui-sans-serif;
+    font-size: var(--s);
+}
+
+.accordion-item-check:checked + label {
+    padding-bottom: var(--m);
+    border-color: var(--link-color);
+}
+
+.accordion-content {
+    height: max-content;
+    max-height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-right: var(--xxs);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+.accordion-item-check:checked + label + .accordion-content {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Accordion */
+
+
 /* Background */
 .bg-primary {
     background-color: var(--blue-color);
@@ -271,7 +318,7 @@ ol {
 
 
 /* Bottom Sheet */
-.bottom-sheet{
+.bottom-sheet {
     position: fixed;
     bottom: -86dvh;
     z-index: 999;
@@ -280,18 +327,21 @@ ol {
     background-color: var(--bg-color);
     height: 85dvh;
     width: 100dvw;
-    border: var(--border);
-    border-radius: var(--m);
+    border-top: var(--border);
+    border-left: var(--border);
+    border-right: var(--border);
+    border-top-left-radius: var(--radius-m);
+    border-top-right-radius: var(--radius-m);
     overflow: hidden;
     box-sizing: border-box;
     transition: .3s ease-in;
 }
 
-.bottom-sheet.active{
+.bottom-sheet.active {
     bottom: 0;
 }
 
-.bottom-sheet-header{
+.bottom-sheet-header {
     min-height: 8dvh;
     font-size: var(--l);
     display: flex;
@@ -301,14 +351,14 @@ ol {
     transition: .3s;
 }
 
-.bottom-sheet-header:hover{
+.bottom-sheet-header:hover {
     background-color: var(--transblue-color);
     color: var(--blue-color);
     fill: var(--blue-color);
     transform: scale(1.07);
 }
 
-.bottom-sheet-content{
+.bottom-sheet-content {
     display: grid;
     grid-auto-rows: max-content;
     max-height: 77dvh;
@@ -319,6 +369,7 @@ ol {
     margin: 0 var(--m);
     border-top: var(--border);
 }
+
 /* Bottom Sheet */
 
 
@@ -708,6 +759,10 @@ ol {
 /* Display */
 
 /* -- place content -- */
+.pc-center{
+    place-content: center;
+}
+
 .ps-center {
     place-self: center;
 }
@@ -1160,8 +1215,12 @@ footer {
 }
 
 @keyframes skeleton-loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 /* Loading */
@@ -1366,6 +1425,7 @@ main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
 }
 
 main.has-sidebar section {
+    place-content: center;
     padding-left: calc(253px + var(--m));
 }
 
@@ -1378,6 +1438,58 @@ main.has-sidebar.active .sidebar-menu-item {
 }
 
 /* Sidebar */
+
+/* Stepper */
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    column-gap: var(--m);
+    overflow-x: auto;
+    padding-bottom: var(--xxs);
+}
+
+.stepper::-webkit-scrollbar {
+    height: 7px;
+}
+
+.stepper-item {
+    display: flex;
+    align-items: center;
+    column-gap: var(--xxs);
+}
+
+.stepper-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--link-color);
+    font-size: var(--s);
+    font-family: Medium, ui-sans-serif;
+    cursor: pointer;
+}
+
+.stepper-key.active,
+.stepper-key:hover{
+    background-color: var(--blue-color);
+    color: white;
+}
+
+.stepper-value {
+    white-space: nowrap;
+    font-family: Medium, ui-sans-serif;
+}
+
+.stepper-divider {
+    height: 1px;
+    min-width: 111px;
+    background-color: var(--blue-color);
+}
+
+/* Stepper */
 
 /* Table */
 .table-box {
@@ -1569,6 +1681,65 @@ td.action :hover {
 
 /* Text */
 
+/* Timeline */
+.timeline {
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-template-columns: 1fr;
+}
+
+.timeline-item {
+    margin-top: var(--m);
+    display: flex;
+    align-items: start;
+    column-gap: var(--xs);
+}
+
+.timeline-key {
+    min-width: 41px;
+    min-height: 41px;
+    max-width: 41px;
+    max-height: 41px;
+    background-color: var(--link-color);
+    font-family: Medium, ui-sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 41px;
+    cursor: pointer;
+}
+
+.timeline-key.active,
+.timeline-key:hover{
+    background-color: var(--blue-color);
+    color: white;
+}
+
+.timeline-content{
+    overflow: auto;
+    height: max-content;
+    max-height: 300px;
+}
+
+.timeline-content-title{
+    font-family: Medium, ui-sans-serif;
+    font-size: var(--l);
+}
+
+.timeline-content-time{
+    font-family: Light, ui-sans-serif;
+    font-size: var(--xs);
+}
+
+.timeline-divider{
+    min-height: 63px;
+    width: 2px;
+    margin-left: 20px;
+    background-color: var(--blue-color);
+}
+
+/* Timeline */
+
 /* Toast */
 .toast {
     position: fixed;
@@ -1630,6 +1801,53 @@ td.action :hover {
 }
 
 /* Toast */
+
+/* Toggle */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 63px;
+    height: 33px;
+    border-radius: 33px;
+    cursor: pointer;
+    border: var(--border);
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.dark-mode .toggle {
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.1) -3px -3px 6px 1px inset;
+}
+
+.toggle-check {
+    display: none;
+}
+
+.toggle-slider {
+    display: block;
+    background-color: var(--third-bg-color);
+    transition: 0.3s ease;
+    border-radius: 33px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: var(--border);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.toggle-check:checked + .toggle-slider {
+    left: 34px;
+}
+
+.toggle-status {
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 60px;
+}
+
+/* Toggle */
 
 /* Tooltip */
 [data-tooltip]:hover::after {
