@@ -342,6 +342,66 @@ ol {
     <p>Example</p>
     <div class="badge-button-close">x</div>
 </div>`,
+    `.bottom-sheet{
+    position: fixed;
+    bottom: -86dvh;
+    z-index: 999;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-color);
+    height: 85dvh;
+    width: 100dvw;
+    border: var(--border);
+    border-radius: var(--m);
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: .3s ease-in;
+}
+
+.bottom-sheet.active{
+    bottom: 0;
+}
+
+.bottom-sheet-header{
+    min-height: 8dvh;
+    font-size: var(--l);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.bottom-sheet-header:hover{
+    background-color: var(--transblue-color);
+    color: var(--blue-color);
+    fill: var(--blue-color);
+    transform: scale(1.07);
+}
+
+.bottom-sheet-content{
+    display: grid;
+    grid-auto-rows: max-content;
+    max-height: 77dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: var(--m) 0;
+    margin: 0 var(--m);
+    border-top: var(--border);
+}`,
+    `<div class="bottom-sheet">
+    <div class="bottom-sheet-header" onclick="showBottomSheet()">
+        🖱
+    </div>
+    <div class="bottom-sheet-content">
+        <h1>Example</h1>
+
+    </div>
+</div>
+<div class="button bg-primary" onclick="showBottomSheet()">
+    Trigger
+</div>`,
     `.breadcrumb {
     display: flex;
     box-sizing: border-box;

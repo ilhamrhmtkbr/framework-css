@@ -1,3 +1,9 @@
+## [1.1.2] - 2025-07-10
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Menambahkan bottom sheet
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+  
 ## [1.1.1] - 2025-07-10
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
