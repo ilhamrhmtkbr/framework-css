@@ -316,16 +316,31 @@ ol {
     background-color: var(--blue-color);
 }
 
+.bg-trans-primary {
+    background-color: var(--transblue-color);
+}
+
 .bg-danger {
     background-color: var(--red-color);
+}
+
+.bg-trans-danger {
+    background-color: var(--transred-color);
 }
 
 .bg-warning {
     background-color: var(--orange-color);
 }
+.bg-trans-warning {
+    background-color: var(--transorange-color);
+}
 
 .bg-success {
     background-color: var(--green-color);
+}
+
+.bg-trans-success {
+    background-color: var(--transgreen-color);
 }
 
 .bg-gradient {
@@ -352,6 +367,12 @@ ol {
     max-width: 75vw;
     height: max-content;
     font-size: var(--s);
+}
+
+.badge-small{
+    padding: 5px var(--s);
+    font-size: var(--xs);
+    color: white;
 }
 
 .badge-close {
@@ -418,6 +439,9 @@ ol {
     `<div class="badge badge-close badge-primary">
     <p>Example</p>
     <div class="badge-button-close">x</div>
+</div>
+<div class="badge badge-small bg-primary">
+    <p>Message</p>
 </div>`,
     `.bottom-sheet{
     position: fixed;
@@ -881,7 +905,11 @@ ol {
     max-width: 300px;
 }`,
     `<div class="w-full-vw"></div>`,
-    `.ps-center {
+    `.pc-center {
+    place-content: center;
+}
+
+.ps-center {
     place-self: center;
 }
 
@@ -1407,8 +1435,7 @@ footer {
 }
 
 .loading-bar-progress.with-animation-progress {
-    animation: fillProgress 3s ease-out forwards;
-    
+    animation: fillProgress 7s ease-out forwards;
 }
 
 @keyframes fillProgress {
