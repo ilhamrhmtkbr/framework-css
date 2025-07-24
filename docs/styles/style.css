@@ -979,17 +979,17 @@ ol {
     fill: var(--blue-color);
 }
 
-.svg-fill-blue:hover,
+.svg-fill-red:hover,
 .fill-red {
     fill: var(--red-color);
 }
 
-.svg-fill-blue:hover,
+.svg-fill-orange:hover,
 .fill-orange {
     fill: var(--orange-color);
 }
 
-.svg-fill-blue:hover,
+.svg-fill-green:hover,
 .fill-green {
     fill: var(--green-color);
 }

@@ -1,3 +1,9 @@
+## [1.1.8] - 2025-07-24
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Menyesuaikan style svg ketika di hover
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+
 ## [1.1.7] - 2025-07-24
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
