@@ -153,6 +153,10 @@ ol {
     box-sizing: border-box;
 }
 
+.border-style-default {
+    border: var(--border);
+}
+
 .border-primary {
     border-color: var(--blue-color);
 }
@@ -354,6 +358,13 @@ ol {
 }
 
 /* Accordion */
+.accordion-item {
+    display: block;
+    padding: var(--m);
+    border: var(--border);
+    border-radius: var(--radius-s);
+}
+
 .accordion-item-check {
     display: none;
 }
@@ -374,9 +385,10 @@ ol {
     font-size: var(--s);
 }
 
-.accordion-item-check:checked + label {
+.accordion-item-check:checked + .accordion-item-label {
     padding-bottom: var(--m);
-    border-color: var(--link-color);
+    border-color: var(--border-color);
+    margin-bottom: var(--m);
 }
 
 .accordion-content {
@@ -1453,6 +1465,7 @@ footer {
     border-top: var(--border);
     padding: 10dvh var(--m) 20dvh var(--m);
 }
+
 /* Header Footer */
 
 /* Image */

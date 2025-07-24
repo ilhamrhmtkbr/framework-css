@@ -154,6 +154,10 @@ ol {
     box-sizing: border-box;
 }
 
+.border-style-default {
+    border: var(--border);
+}
+
 .border-primary {
     border-color: var(--blue-color);
 }
@@ -431,7 +435,14 @@ ol {
     </footer>
 </body>
 </html>`,
-    `.accordion-item-check {
+    `.accordion-item{
+    display: block;
+    padding: var(--m);
+    border: var(--border);
+    border-radius: var(--radius-s);
+}
+
+.accordion-item-check {
     display: none;
 }
 
@@ -451,9 +462,10 @@ ol {
     font-size: var(--s);
 }
 
-.accordion-item-check:checked + label {
+.accordion-item-check:checked + .accordion-item-label {
     padding-bottom: var(--m);
-    border-color: var(--link-color);
+    border-color: var(--border-color);
+    margin-bottom: var(--m);
 }
 
 .accordion-content {
@@ -473,10 +485,13 @@ ol {
     max-height: 300px;
     overflow-y: auto;
 }`,
-    `<div class="card-wrapper replace-shadow-with-border max-width-400">
+    `<div class="accordion-item">
     <input type="checkbox" id="accordion-item1" class="accordion-item-check" />
     <label for="accordion-item1" class="accordion-item-label">
-        <div>What is Lorem Ipsum?</div>
+        <div class="flex-aic-jcb">
+            <p>What is Lorem Ipsum?</p>
+            <span>▼</span>
+        </div>
         <div class="accordion-item-label-subtitle">
             Lorem Ipsum is simply dummy text of the printing and
             typesetting industry.
@@ -491,10 +506,13 @@ ol {
             Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
 </div>
-<div class="card-wrapper replace-shadow-with-border max-width-400">
+<div class="accordion-item">
     <input type="checkbox" id="accordion-item2" class="accordion-item-check" />
     <label for="accordion-item2" class="accordion-item-label">
-        <div>What is Lorem Ipsum?</div>
+        <div class="flex-aic-jcb">
+            <p>What is Lorem Ipsum?</p>
+            <span>▼</span>
+        </div>
         <div class="accordion-item-label-subtitle">Lorem Ipsum is simply dummy text of the printing and
             typesetting industry.
         </div>
