@@ -528,7 +528,7 @@ ol {
     background-color: var(--transred-color);
 }
 
-.bg-trans-danger-hover {
+.bg-trans-danger-hover:hover {
     background-color: var(--red-color);
 }
 
@@ -540,7 +540,7 @@ ol {
     background-color: var(--transorange-color);
 }
 
-.bg-trans-warning-hover {
+.bg-trans-warning-hover:hover {
     background-color: var(--orange-color);
 }
 
@@ -552,7 +552,7 @@ ol {
     background-color: var(--transgreen-color);
 }
 
-.bg-trans-success-hover {
+.bg-trans-success-hover:hover {
     background-color: var(--green-color);
 }
 
@@ -1176,7 +1176,7 @@ ol {
     max-width: 300px;
     width: 100%;
 }`,
-    `<div class="w-full-vw"></div>`,
+    `<div class="w-full-dvw"></div>`,
     `.pc-center {
     place-content: center;
 }
@@ -1326,8 +1326,7 @@ fieldset input {
     border: none;
     border-radius: var(--radius-m);
     outline: none;
-    padding: 0;
-    padding-top: 1px;
+    padding: 1px 0 0 0;
     font-size: var(--m);
 }
 
@@ -1363,7 +1362,6 @@ textarea {
 .resize-none {
     resize: none;
 }
-
 
 /*.dark-mode input,*/
 /*.dark-mode textarea,*/
@@ -1648,15 +1646,6 @@ footer {
     font-size: var(--s);
     border-top: var(--border);
     padding: 10dvh var(--m) 20dvh var(--m);
-}
-
-.footer__copy__link {
-    color: var(--blue-color);
-    text-decoration: underline;
-}
-
-.footer__copy__link:hover {
-    font-weight: bold;
 }`,
     `<header>
     <div class="header__logo">
@@ -1747,7 +1736,7 @@ footer {
 .loading-bar-progress {
     height: 100%;
     background: #0060fa;
-    width: 0%;
+    width: 0;
     border-radius: 99px;
 }
 
@@ -1757,7 +1746,7 @@ footer {
 
 @keyframes fillProgress {
     0% {
-        width: 0%;
+        width: 0;
     }
     100% {
         width: 100%;
@@ -2280,8 +2269,32 @@ td.action :hover {
     color: var(--green-color);
 }
 
+.text-primary-hover:hover {
+    color: var(--blue-color);
+}
+
+.text-danger-hover:hover {
+    color: var(--red-color);
+}
+
+.text-warning-hover:hover {
+    color: var(--orange-color);
+}
+
+.text-success-hover:hover {
+    color: var(--green-color);
+}
+
 .text-link {
     color: var(--link-color);
+}
+
+.text-white {
+    color: white;
+}
+
+.text-hover-underline:hover {
+    text-decoration: underline;
 }
 
 .text-gold {
@@ -2486,7 +2499,7 @@ td.action :hover {
     top: 50%;
     transform: translateY(-50%);
     border: var(--border);
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, rgba(9, 30, 66, 0.08) 0 0 0 1px;
 }
 
 .toggle-check:checked + .toggle-slider {
