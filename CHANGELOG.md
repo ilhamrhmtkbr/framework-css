@@ -1,9 +1,15 @@
+## [1.1.5] - 2025-07-25
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Menambahkan dan menyesuaikan beberapa style
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+
 ## [1.1.4] - 2025-07-24
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
   - Menyesuaikan beberapa style
   - Minify `style.css` di `dist/` dan `docs/styles/`
-  - 
+  
 ## [1.1.3] - 2025-07-23
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
