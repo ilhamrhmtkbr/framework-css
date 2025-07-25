@@ -1755,7 +1755,6 @@ main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
 }
 
 main.has-sidebar section {
-    place-content: center;
     padding-left: calc(253px + var(--m));
 }
 

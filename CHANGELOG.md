@@ -1,3 +1,9 @@
+## [1.1.9] - 2025-07-25
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Menghilangkan place-center ketika sebuah layout memiliki class has-sidebar section
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+  
 ## [1.1.8] - 2025-07-24
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :

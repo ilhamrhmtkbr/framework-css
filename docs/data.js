@@ -1996,10 +1996,6 @@ main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
     fill: var(--blue-color);
 }
 
-.sidebar-menu + section {
-    padding-left: calc(253px + var(--m));
-}
-
 main.has-sidebar section {
     padding-left: calc(253px + var(--m));
 }
