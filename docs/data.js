@@ -150,7 +150,7 @@ ol {
     margin-left: var(--m);
 }
 
-.box-sizing-border {
+.box-border {
     box-sizing: border-box;
 }
 
@@ -174,99 +174,99 @@ ol {
     border-color: var(--green-color);
 }
 
-.border-radius-x {
+.radius-x {
     border-radius: var(--radius-x);
 }
 
-.border-radius-l {
+.radius-l {
     border-radius: var(--radius-l);
 }
 
-.border-radius-m {
+.radius-m {
     border-radius: var(--radius-m);
 }
 
-.border-radius-s {
+.radius-s {
     border-radius: var(--radius-s);
 }
 
-.padding-x {
+.p-x {
     padding: var(--x);
 }
 
-.padding-l {
+.p-l {
     padding: var(--l);
 }
 
-.padding-m {
+.p-m {
     padding: var(--m);
 }
 
-.padding-s {
+.p-s {
     padding: var(--s);
 }
 
-.padding-top-x {
+.pt-x {
     padding-top: var(--x);
 }
 
-.padding-top-l {
+.pt-l {
     padding-top: var(--l);
 }
 
-.padding-top-m {
+.pt-m {
     padding-top: var(--m);
 }
 
-.padding-top-s {
+.pt-s {
     padding-top: var(--s);
 }
 
-.padding-right-x {
+.pr-x {
     padding-right: var(--x);
 }
 
-.padding-right-l {
+.pr-l {
     padding-right: var(--l);
 }
 
-.padding-right-m {
+.pr-m {
     padding-right: var(--m);
 }
 
-.padding-right-s {
+.pr-s {
     padding-right: var(--s);
 }
 
-.padding-bottom-x {
+.pb-x {
     padding-bottom: var(--x);
 }
 
-.padding-bottom-l {
+.pb-l {
     padding-bottom: var(--l);
 }
 
-.padding-bottom-m {
+.pb-m {
     padding-bottom: var(--m);
 }
 
-.padding-bottom-s {
+.pb-s {
     padding-bottom: var(--s);
 }
 
-.padding-left-x {
+.pl-x {
     padding-left: var(--x);
 }
 
-.padding-left-l {
+.pl-l {
     padding-left: var(--l);
 }
 
-.padding-left-m {
+.pl-m {
     padding-left: var(--m);
 }
 
-.padding-left-s {
+.pl-s {
     padding-left: var(--s);
 }
 
@@ -274,83 +274,83 @@ ol {
     padding-top: var(--ideal-distance-to-header) !important;
 }
 
-.margin-x {
+.m-x {
     margin: var(--x);
 }
 
-.margin-l {
+.m-l {
     margin: var(--l);
 }
 
-.margin-m {
+.m-m {
     margin: var(--m);
 }
 
-.margin-s {
+.m-s {
     margin: var(--s);
 }
 
-.margin-top-x {
+.mt-x {
     margin-top: var(--x);
 }
 
-.margin-top-l {
+.mt-l {
     margin-top: var(--l);
 }
 
-.margin-top-m {
+.mt-m {
     margin-top: var(--m);
 }
 
-.margin-top-s {
+.mt-s {
     margin-top: var(--s);
 }
 
-.margin-right-x {
+.mr-x {
     margin-right: var(--x);
 }
 
-.margin-right-l {
+.mr-l {
     margin-right: var(--l);
 }
 
-.margin-right-m {
+.mr-m {
     margin-right: var(--m);
 }
 
-.margin-right-s {
+.mr-s {
     margin-right: var(--s);
 }
 
-.margin-bottom-x {
+.mb-x {
     margin-bottom: var(--x);
 }
 
-.margin-bottom-l {
+.mb-l {
     margin-bottom: var(--l);
 }
 
-.margin-bottom-m {
+.mb-m {
     margin-bottom: var(--m);
 }
 
-.margin-bottom-s {
+.mb-s {
     margin-bottom: var(--s);
 }
 
-.margin-left-x {
+.ml-x {
     margin-left: var(--x);
 }
 
-.margin-left-l {
+.ml-l {
     margin-left: var(--l);
 }
 
-.margin-left-m {
+.ml-m {
     margin-left: var(--m);
 }
 
-.margin-left-s {
+.ml-s {
     margin-left: var(--s);
 }
 
@@ -368,8 +368,8 @@ ol {
 </head>
 <body>
     <header>
-        <div class="header__logo">
-            <svg class='header__logo__img'
+        <div class="header-logo">
+            <svg class='header-logo-img'
                  xmlns="http://www.w3.org/2000/svg" width="39.3" height="39.3" viewBox="0 0 143 143"
                  shape-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero">
                 <path
@@ -1095,7 +1095,7 @@ ol {
 }
 
 .h-full-dvh {
-    height: 100dvh;
+    min-height: 100dvh;
 }`,
     `<div class="h-full-dvh"></div>`,
     `.svg-x {
@@ -1116,6 +1116,11 @@ ol {
 .svg-s {
     max-width: var(--s);
     max-height: var(--s);
+}
+
+.svg-fill-text:hover,
+.fill-text {
+    fill: var(--text-color);
 }
 
 .svg-fill-blue:hover,
@@ -1627,7 +1632,7 @@ header {
     align-items: center;
 }
 
-.header__logo {
+.header-logo {
     display: flex;
     align-items: center;
     gap: var(--m);
@@ -1635,7 +1640,7 @@ header {
     transition: .3s;
 }
 
-.header__logo__img {
+.header-logo-img {
     width: 17px;
     height: 17px;
     fill: var(--text-color);
@@ -1666,8 +1671,8 @@ footer {
     padding: 10dvh var(--m) 20dvh var(--m);
 }`,
     `<header>
-    <div class="header__logo">
-        <svg class='header__logo__img'
+    <div class="header-logo">
+        <svg class='header-logo-img'
              xmlns="http://www.w3.org/2000/svg" width="39.3" height="39.3" viewBox="0 0 143 143"
              shape-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero">
             <path
@@ -1759,7 +1764,7 @@ footer {
 }
 
 .loading-bar-progress.with-animation-progress {
-    animation: fillProgress 7s ease-out forwards;
+    animation: fillProgress 11s ease-out forwards;
 }
 
 @keyframes fillProgress {
@@ -1864,16 +1869,22 @@ footer {
 </div>`,
     `.pagination {
     display: flex;
-    width: 100%;
+    width: max-content;
     justify-content: center;
     gap: var(--m);
     align-items: center;
     font-family: Medium, ui-sans-serif;
+    margin-top: var(--x);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: var(--m) var(--xxxx);
+    max-width: 77dvw;
+    overflow: auto;
+    border-radius: 999px;
 }
 
-.pagination-prev:hover,
-.pagination-next:hover {
-    color: var(--blue-color);
+.dark-mode .pagination{
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.8) 0px 1px 3px -1px;
 }
 
 .pagination-item {
@@ -2005,7 +2016,7 @@ main.has-sidebar.active section {
 }
 
 main.has-sidebar.active .sidebar-menu-item{
-    width: max-content;
+    justify-content: center;
 }`,
     `<aside class="sidebar-menu">
     <div class="sidebar-menu-button">
@@ -2326,6 +2337,10 @@ td.action :hover {
     margin-top: 2px;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .capitalize {
     text-transform: capitalize;
 }
@@ -2502,7 +2517,9 @@ td.action :hover {
 }
 
 .toggle-slider {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--third-bg-color);
     transition: 0.3s ease;
     border-radius: 33px;

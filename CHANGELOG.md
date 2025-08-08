@@ -1,3 +1,10 @@
+## [1.2.0] - 2025-08-08
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Persingkat nama class css untuk margin, padding, border-box
+  - Mengubah style pagination, sidebar-item, h-full-dvh, toggle, text, class header, dan loading durasi
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+
 ## [1.1.9] - 2025-07-25
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
