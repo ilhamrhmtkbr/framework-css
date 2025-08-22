@@ -1,3 +1,9 @@
+## [1.2.1] - 2025-08-23
+### Changed
+- Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :
+  - Mengubah style sidebar 
+  - Minify `style.css` di `dist/` dan `docs/styles/`
+
 ## [1.2.0] - 2025-08-08
 ### Changed
 - Update `style.css` di `dist/` dan `docs/styles/`, `docs/example.html` dan `docs/data.js` :

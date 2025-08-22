@@ -77,6 +77,18 @@ body.dark-mode {
     --border-color: #38393e;
     --border: 1px solid var(--border-color);
     --box-shadow: color-mix(in srgb, rgb(0, 0, 0) 30%, transparent) 0 1px 2px 0, color-mix(in srgb, rgb(0, 0, 0) 15%, transparent) 0 2px 6px 2px;
+    
+    --red-color: #ff5c5c;
+    --transred-color: #ff5c5c22;
+
+    --orange-color: #ffb84d;
+    --transorange-color: #ffb84d22;
+
+    --green-color: #4ade80;
+    --transgreen-color: #4ade8022;
+
+    --blue-color: #4da6ff;
+    --transblue-color: #4da6ff22;
 }
 
 ::-webkit-scrollbar {
@@ -919,7 +931,9 @@ ol {
 
 <a class="button badge-primary text-primary">Example</a>
 
-<button class="button bg-primary">Example</button>`,
+<button class="button bg-primary">Example</button>
+
+<a class="button badge-primary text-primary rounded">Example</a>`,
     `.card-layout {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
@@ -1002,7 +1016,8 @@ ol {
     display: grid;
     gap: var(--m);
     padding-left: var(--xx);
-    border-left: var(--border);
+    border-left: 5px solid var(--blue-color);
+    border-radius: var(--m);
 }
 
 .data-box h1,
@@ -1627,7 +1642,6 @@ header {
     z-index: 99;
     background-color: var(--transbg-color);
     backdrop-filter: blur(5px);
-    border-bottom: var(--border);
     padding: 5px var(--m);
     align-items: center;
 }
@@ -1911,41 +1925,64 @@ footer {
     <div class="pagination-item">></div>
 </div>`,
     `.sidebar-menu {
-    padding-top: 0;
-    width: 253px;
+    width: 325px;
     box-sizing: border-box;
     position: fixed;
     left: 0;
     top: var(--ideal-distance-to-header);
-    border-right: 1px solid var(--border-color);
-    padding-bottom: var(--m);
-    background-color: var(--bg-color);
+    padding: 0 var(--m) var(--m) var(--m);
+    transition: .5s;
 }
 
 main.has-sidebar.active .sidebar-menu {
-    width: calc(var(--s) + var(--m) + var(--m));
+    width: 117px;
 }
 
-main.has-sidebar.active p,
-main.has-sidebar.active span {
+.sidebar-menu-content{
+    padding: var(--m);
+    background-color: var(--third-bg-color);
+    border-radius: var(--radius-m);
+    display: grid;
+    grid-auto-rows: max-content 1fr;
+    max-height: 70dvh;
+}
+
+main.has-sidebar.active .sidebar-menu p,
+main.has-sidebar.active .sidebar-menu span {
     display: none;
 }
 
 .sidebar-menu-title {
     font-family: Medium, ui-sans-serif;
     font-size: var(--s);
-    border-bottom: var(--border);
 }
 
 .sidebar-menu-element {
     display: grid;
     text-transform: capitalize;
-    max-height: 77dvh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: var(--xxxx);
+    padding-right: var(--xs);
 }
 
-.sidebar-menu-element details {
-    background-color: var(--third-bg-color);
+.sidebar-menu-accordion {
+    margin-bottom: var(--xxs);
+    border-radius: var(--radius-m);
+    box-sizing: border-box;
+}
+
+.sidebar-menu-accordion[open] {
+    background-color: var(--border-color);
+}
+
+.sidebar-menu-element summary {
+    margin-bottom: 0;
+}
+
+.sidebar-menu-accordion-elements{
+    padding: var(--xxs);
+    box-sizing: border-box;
 }
 
 .sidebar-menu-element::-webkit-scrollbar {
@@ -1962,6 +1999,11 @@ main.has-sidebar.active span {
     align-items: center;
     cursor: pointer;
     box-sizing: border-box;
+    background-color: var(--bg-color);
+    border: var(--border);
+    border-color: transparent;
+    margin-bottom: var(--xxs);
+    border-radius: var(--radius-m);
 }
 
 .sidebar-menu .sidebar-menu-item[data-title]::after {
@@ -1998,24 +2040,25 @@ main.has-sidebar.active .sidebar-menu-item[data-title]:hover::after {
 
 .sidebar-menu-item:hover,
 .sidebar-menu-item.active {
-    background-color: var(--transblue-color);
+    border-color: var(--border-color);
     color: var(--blue-color);
 }
 
 .sidebar-menu-item:hover .sidebar-menu-button-svg,
-.sidebar-menu-item.active .sidebar-menu-button-svg{
+.sidebar-menu-item.active .sidebar-menu-button-svg {
     fill: var(--blue-color);
 }
 
 main.has-sidebar section {
-    padding-left: calc(253px + var(--m));
+    transition: .5s;
+    padding-left: calc(325px + var(--m));
 }
 
 main.has-sidebar.active section {
-    padding-left: calc(var(--s) + var(--m) + var(--m) + var(--m));
+    padding-left: calc(117px + var(--m));
 }
 
-main.has-sidebar.active .sidebar-menu-item{
+main.has-sidebar.active .sidebar-menu-item {
     justify-content: center;
 }`,
     `<aside class="sidebar-menu">
@@ -2032,26 +2075,45 @@ main.has-sidebar.active .sidebar-menu-item{
             </svg>
             <p>Data</p>
         </a>
-    <details>
-        <summary class="sidebar-menu-item" data-title="Dimen">Dimen</summary>
-        <a class="sidebar-menu-item" data-title="Gap" href="#Gap">
-            <svg class="svg-s sidebar-menu-button-svg">
-                <use href="/sprite.svg#click"></use>
+    <details class="sidebar-menu-accordion">
+        <summary class="sidebar-menu-item" data-title="Dimen">
+            <svg class="sidebar-menu-button-svg">
+                <use href="#dimen"></use>
             </svg>
-            <p>Gap</p>
-        </a>
-        <a class="sidebar-menu-item" data-tooltip="Height" href="#Height">
-            <svg class="svg-s sidebar-menu-button-svg">
-                <use href="/sprite.svg#click"></use>
-            </svg>
-            <p>Height</p>
-        </a>
-        <a class="sidebar-menu-item" data-tooltip="Width" href="#Width">
-            <svg class="svg-s sidebar-menu-button-svg">
-                <use href="/sprite.svg#click"></use>
-            </svg>
-            <p>Width</p>
-        </a>
+            <span>Dimen</span>
+        </summary>
+        <div class="sidebar-menu-accordion-elements">
+            <a class="sidebar-menu-item" data-title="Gap" href="#Gap">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#dimen-gap"></use>
+                </svg>
+                <p>Gap</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Height" href="#Height">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#dimen-height"></use>
+                </svg>
+                <p>Height</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Svg" href="#Svg">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#dimen-svg"></use>
+                </svg>
+                <p>Svg</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Swiper" href="#Swiper">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#dimen-swiper"></use>
+                </svg>
+                <p>Swiper</p>
+            </a>
+            <a class="sidebar-menu-item" data-title="Width" href="#Width">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#dimen-width"></use>
+                </svg>
+                <p>Width</p>
+            </a>
+        </div>
     </details>
 </aside>
 <section>
@@ -2504,12 +2566,14 @@ td.action :hover {
     height: 33px;
     border-radius: 33px;
     cursor: pointer;
+    transition: .3s;
     border: var(--border);
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0 inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
-.dark-mode .toggle {
-    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.1) -3px -3px 6px 1px inset;
+.toggle:hover{
+    transform: scale(1.02);
+    border-color: var(--blue-color);
 }
 
 .toggle-check {
