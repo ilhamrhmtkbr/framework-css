@@ -2062,59 +2062,61 @@ main.has-sidebar.active .sidebar-menu-item {
     justify-content: center;
 }`,
     `<aside class="sidebar-menu">
-    <div class="sidebar-menu-button">
-        <p class="sidebar-menu-title">Menu</p>
-        <svg class="svg-s sidebar-menu-button-svg">
-            <use xlink:href="./sprite.svg#click"></use>
-        </svg>
-    </div>
-    <div class="sidebar-menu-element">
-        <a class="sidebar-menu-item" data-title="Data" href="#Data">
-            <svg class="svg-s sidebar-menu-button-svg">
-                <use href="/sprite.svg#click"></use>
-            </svg>
-            <p>Data</p>
-        </a>
-    <details class="sidebar-menu-accordion">
-        <summary class="sidebar-menu-item" data-title="Dimen">
+    <div class="sidebar-menu-content">
+        <div class="sidebar-menu-title sidebar-menu-item" onclick="minifySidebar()">
             <svg class="sidebar-menu-button-svg">
-                <use href="#dimen"></use>
+                <use href="#click"></use>
             </svg>
-            <span>Dimen</span>
-        </summary>
-        <div class="sidebar-menu-accordion-elements">
-            <a class="sidebar-menu-item" data-title="Gap" href="#Gap">
-                <svg class="sidebar-menu-button-svg">
-                    <use href="#dimen-gap"></use>
-                </svg>
-                <p>Gap</p>
-            </a>
-            <a class="sidebar-menu-item" data-title="Height" href="#Height">
-                <svg class="sidebar-menu-button-svg">
-                    <use href="#dimen-height"></use>
-                </svg>
-                <p>Height</p>
-            </a>
-            <a class="sidebar-menu-item" data-title="Svg" href="#Svg">
-                <svg class="sidebar-menu-button-svg">
-                    <use href="#dimen-svg"></use>
-                </svg>
-                <p>Svg</p>
-            </a>
-            <a class="sidebar-menu-item" data-title="Swiper" href="#Swiper">
-                <svg class="sidebar-menu-button-svg">
-                    <use href="#dimen-swiper"></use>
-                </svg>
-                <p>Swiper</p>
-            </a>
-            <a class="sidebar-menu-item" data-title="Width" href="#Width">
-                <svg class="sidebar-menu-button-svg">
-                    <use href="#dimen-width"></use>
-                </svg>
-                <p>Width</p>
-            </a>
+            <p>Menu</p>
         </div>
-    </details>
+        <div class="sidebar-menu-element">
+            <a class="sidebar-menu-item" data-title="Data" href="#Data">
+                <svg class="svg-s sidebar-menu-button-svg">
+                    <use href="/sprite.svg#click"></use>
+                </svg>
+                <p>Data</p>
+            </a>
+        <details class="sidebar-menu-accordion">
+            <summary class="sidebar-menu-item" data-title="Dimen">
+                <svg class="sidebar-menu-button-svg">
+                    <use href="#dimen"></use>
+                </svg>
+                <span>Dimen</span>
+            </summary>
+            <div class="sidebar-menu-accordion-elements">
+                <a class="sidebar-menu-item" data-title="Gap" href="#Gap">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-gap"></use>
+                    </svg>
+                    <p>Gap</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Height" href="#Height">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-height"></use>
+                    </svg>
+                    <p>Height</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Svg" href="#Svg">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-svg"></use>
+                    </svg>
+                    <p>Svg</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Swiper" href="#Swiper">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-swiper"></use>
+                    </svg>
+                    <p>Swiper</p>
+                </a>
+                <a class="sidebar-menu-item" data-title="Width" href="#Width">
+                    <svg class="sidebar-menu-button-svg">
+                        <use href="#dimen-width"></use>
+                    </svg>
+                    <p>Width</p>
+                </a>
+            </div>
+        </details>
+    </div>
 </aside>
 <section>
 ...

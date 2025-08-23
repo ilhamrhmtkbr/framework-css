@@ -1702,6 +1702,7 @@ main.has-sidebar.active .sidebar-menu {
     display: grid;
     grid-auto-rows: max-content 1fr;
     max-height: 70dvh;
+    border: var(--border);
 }
 
 main.has-sidebar.active .sidebar-menu p,
